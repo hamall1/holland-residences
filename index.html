@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holland Residences — 34 Holland St, Toowong</title>
+    <meta name="description" content="Nine boutique residences at 34 Holland St, Toowong. 3 bed, 2 bath, 2 car — from $1.65M. A new benchmark for boutique living in Brisbane's inner-west.">
+
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Holland Residences — 34 Holland St, Toowong">
+    <meta property="og:description" content="Nine boutique residences in Brisbane's inner-west. 3 bed, 2 bath, 2 car — from $1.65M. Register your interest today.">
+    <meta property="og:image" content="images/34 Holland Street Toowong - Dusk Photos (1).jpg">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="Holland Residences">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Holland Residences — 34 Holland St, Toowong">
+    <meta name="twitter:description" content="Nine boutique residences in Brisbane's inner-west. From $1.65M. Register your interest.">
+    <meta name="twitter:image" content="images/34 Holland Street Toowong - Dusk Photos (1).jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">Holland<span>Residences</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#residences">Residences</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact" class="nav-cta">Register Interest</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="images/34 Holland Street Toowong - Dusk Photos (1).jpg" alt="Holland Residences, 34 Holland St Toowong — exterior at dusk">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-pre animate-in">Holland Residences</p>
+            <h1 class="hero-title animate-in delay-1">34 Holland St<br><span>Toowong</span></h1>
+            <p class="hero-tagline animate-in delay-2">Nine boutique residences, considered in every detail</p>
+            <div class="hero-specs animate-in delay-3">
+                <span>3 Bed</span>
+                <span class="spec-dot"></span>
+                <span>2 Bath</span>
+                <span class="spec-dot"></span>
+                <span>2 Car</span>
+                <span class="spec-dot"></span>
+                <span>From $1.65M</span>
+            </div>
+            <a href="#residences" class="hero-btn animate-in delay-4">Explore Residences</a>
+        </div>
+        <div class="hero-scroll animate-in delay-4">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p class="section-label">The Vision</p>
+                    <h2>A new benchmark<br>for boutique living</h2>
+                    <p class="about-body">34 Holland Street is not simply a collection of apartments — it is a deliberate response to how people want to live. Nestled in one of Brisbane's most coveted inner-west pockets, this intimate collection of nine residences brings together natural materials, refined craftsmanship, and generous proportions to create homes that feel both elevated and effortless.</p>
+                    <p class="about-body">Every decision — from the travertine stone and dark timber joinery to the orientation of each floorplan — has been made with intention. The result is a building that feels considered at every turn, with low-maintenance living at its core.</p>
+                </div>
+                <div class="about-image reveal delay-1">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (3).jpg" alt="Holland Residences exterior detail">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Residences / Unit Showcase -->
+    <section class="section residences" id="residences">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">The Residences</p>
+                <h2>Nine homes,<br>each one distinct</h2>
+                <p class="section-sub">Every residence has been designed to maximise light, outlook, and a sense of sanctuary. From private courtyards to penthouse panoramas — discover each home.</p>
+            </div>
+
+            <div class="units-grid">
+                <!-- Unit 101 -->
+                <div class="unit-card reveal" data-unit="101">
+                    <div class="unit-card-header">
+                        <span class="unit-number">101</span>
+                        <span class="unit-level">Ground Floor</span>
+                    </div>
+                    <h3>Ground Courtyard</h3>
+                    <div class="unit-price">$2,275,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>116.7m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>88.1m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>204.8m² Total</span>
+                    </div>
+                    <p class="unit-desc">Ground-level residence with a private enclosed courtyard of 88m². Direct access, generous indoor-outdoor living, and a rare sense of seclusion.</p>
+                    <div class="unit-features">
+                        <span>Private Courtyard</span>
+                        <span>Direct Access</span>
+                        <span>204.8m² Total</span>
+                    </div>
+                    <button class="unit-btn" data-unit="101">Enquire About This Residence</button>
+                </div>
+
+                <!-- Unit 102 -->
+                <div class="unit-card reveal delay-1" data-unit="102">
+                    <div class="unit-card-header">
+                        <span class="unit-number">102</span>
+                        <span class="unit-level">Ground Floor</span>
+                    </div>
+                    <h3>Ground Courtyard</h3>
+                    <div class="unit-price">$2,300,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>126.1m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>72.3m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>198.4m² Total</span>
+                    </div>
+                    <p class="unit-desc">The largest ground-floor residence with an expansive private enclosed courtyard. 126m² of internal living plus 72m² of outdoor space — exceptional for entertaining.</p>
+                    <div class="unit-features">
+                        <span>Private Courtyard</span>
+                        <span>Largest Ground</span>
+                        <span>198.4m² Total</span>
+                    </div>
+                    <button class="unit-btn" data-unit="102">Enquire About This Residence</button>
+                </div>
+
+                <!-- Unit 201 -->
+                <div class="unit-card reveal delay-2" data-unit="201">
+                    <div class="unit-card-header">
+                        <span class="unit-number">201</span>
+                        <span class="unit-level">Level 2</span>
+                    </div>
+                    <h3>Front · Trees Outlook</h3>
+                    <div class="unit-price">$1,700,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>116.7m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>18.4m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>135.1m² Total</span>
+                    </div>
+                    <p class="unit-desc">Front-facing Level 2 residence with a leafy trees outlook. Elevated enough to capture canopy-level views and natural breezes from a generous balcony.</p>
+                    <div class="unit-features">
+                        <span>Front Aspect</span>
+                        <span>Trees Outlook</span>
+                        <span>Balcony</span>
+                    </div>
+                    <button class="unit-btn" data-unit="201">Enquire About This Residence</button>
+                </div>
+
+                <!-- Unit 202 -->
+                <div class="unit-card reveal" data-unit="202">
+                    <div class="unit-card-header">
+                        <span class="unit-number">202</span>
+                        <span class="unit-level">Level 2</span>
+                    </div>
+                    <h3>Rear Residence</h3>
+                    <div class="unit-price">$1,650,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>126.1m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>18.5m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>144.6m² Total</span>
+                    </div>
+                    <p class="unit-desc">Rear-facing Level 2 residence with 126m² of internal living — the largest floorplan on this level. Quiet position offering privacy and a covered balcony.</p>
+                    <div class="unit-features">
+                        <span>Largest L2 Plan</span>
+                        <span>Rear Quiet</span>
+                        <span>Private</span>
+                    </div>
+                    <button class="unit-btn" data-unit="202">Enquire About This Residence</button>
+                </div>
+
+                <!-- Unit 301 -->
+                <div class="unit-card reveal delay-1" data-unit="301">
+                    <div class="unit-card-header">
+                        <span class="unit-number">301</span>
+                        <span class="unit-level">Level 3</span>
+                    </div>
+                    <h3>Front · Clear Over Trees</h3>
+                    <div class="unit-price">$1,775,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>116.7m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>18.5m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>135.2m² Total</span>
+                    </div>
+                    <p class="unit-desc">Level 3 front-facing residence that clears the tree canopy — opening up wider views across Toowong. The sweet spot of elevation and value.</p>
+                    <div class="unit-features">
+                        <span>Clear Trees</span>
+                        <span>Front Aspect</span>
+                        <span>Open Views</span>
+                    </div>
+                    <button class="unit-btn" data-unit="301">Enquire About This Residence</button>
+                </div>
+
+                <!-- Unit 302 -->
+                <div class="unit-card reveal delay-2" data-unit="302">
+                    <div class="unit-card-header">
+                        <span class="unit-number">302</span>
+                        <span class="unit-level">Level 3</span>
+                    </div>
+                    <h3>Rear Residence</h3>
+                    <div class="unit-price">$1,725,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>126.1m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>18.5m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>144.6m² Total</span>
+                    </div>
+                    <p class="unit-desc">Rear-facing Level 3 residence with 126m² internal. Elevated enough for excellent natural light and ventilation while retaining a quiet, private aspect.</p>
+                    <div class="unit-features">
+                        <span>126m² Internal</span>
+                        <span>Rear Quiet</span>
+                        <span>Elevated</span>
+                    </div>
+                    <button class="unit-btn" data-unit="302">Enquire About This Residence</button>
+                </div>
+
+                <!-- Unit 401 -->
+                <div class="unit-card reveal" data-unit="401">
+                    <div class="unit-card-header">
+                        <span class="unit-number">401</span>
+                        <span class="unit-level">Level 4</span>
+                    </div>
+                    <h3>Front · Best Outlook</h3>
+                    <div class="unit-price">$1,850,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>116.7m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>18.5m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>135.2m² Total</span>
+                    </div>
+                    <p class="unit-desc">The clearest outlook in the building. Level 4 front-facing position delivers unobstructed views across the treetops — the best vantage point for front-facing residences.</p>
+                    <div class="unit-features">
+                        <span>Best Outlook</span>
+                        <span>Unobstructed</span>
+                        <span>Front Aspect</span>
+                    </div>
+                    <button class="unit-btn" data-unit="401">Enquire About This Residence</button>
+                </div>
+
+                <!-- Unit 402 -->
+                <div class="unit-card reveal delay-1" data-unit="402">
+                    <div class="unit-card-header">
+                        <span class="unit-number">402</span>
+                        <span class="unit-level">Level 4</span>
+                    </div>
+                    <h3>Rear Residence</h3>
+                    <div class="unit-price">$1,800,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>126.1m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>18.5m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>144.6m² Total</span>
+                    </div>
+                    <p class="unit-desc">Level 4 rear residence — the highest of the rear-facing apartments. 126m² of generous living with elevated breezes, natural light, and a sense of separation from the street.</p>
+                    <div class="unit-features">
+                        <span>Highest Rear</span>
+                        <span>126m² Internal</span>
+                        <span>Breezy</span>
+                    </div>
+                    <button class="unit-btn" data-unit="402">Enquire About This Residence</button>
+                </div>
+
+                <!-- Unit 501 — Penthouse -->
+                <div class="unit-card unit-card--featured reveal delay-2" data-unit="501">
+                    <div class="unit-card-header">
+                        <span class="unit-number">501</span>
+                        <span class="unit-level">Level 5 · Penthouse</span>
+                    </div>
+                    <h3>The Penthouse</h3>
+                    <div class="unit-price">$2,500,000</div>
+                    <div class="unit-specs">
+                        <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bed + 4th / Entertainment</span></div>
+                        <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
+                        <div class="unit-spec"><span class="spec-icon">▣</span><span>2 Car Spaces</span></div>
+                        <div class="unit-spec"><span class="spec-icon">⊡</span><span>140.3m² Internal</span></div>
+                    </div>
+                    <div class="unit-areas">
+                        <span>18.1m² Outdoor</span>
+                        <span class="area-divider">·</span>
+                        <span>158.4m² Total</span>
+                    </div>
+                    <p class="unit-desc">The crown of the collection. Top-floor penthouse with 140m² of internal living, including a flexible fourth bedroom or entertainment room. The largest residence in the building with the most commanding outlook.</p>
+                    <div class="unit-features">
+                        <span>Penthouse</span>
+                        <span>4th Bed / Entertainment</span>
+                        <span>140m² Internal</span>
+                        <span>Top Floor</span>
+                    </div>
+                    <button class="unit-btn" data-unit="501">Enquire About This Residence</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Band -->
+    <section class="section features-band">
+        <div class="container">
+            <div class="features-grid reveal">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="14" y="4" width="20" height="40" rx="3"/><line x1="14" y1="12" x2="34" y2="12"/><line x1="14" y1="36" x2="34" y2="36"/><circle cx="24" cy="24" r="2"/><path d="M20 8 L28 8"/></svg>
+                    </div>
+                    <h4>Passenger Lift</h4>
+                    <p>Full-size passenger lift provides effortless access to every level of the building.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="28" width="40" height="16" rx="2"/><rect x="12" y="20" width="24" height="8" rx="1"/><path d="M8 28 L8 20 C8 16 12 12 24 12 C36 12 40 16 40 20 L40 28"/><circle cx="16" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></svg>
+                    </div>
+                    <h4>Car Lift</h4>
+                    <p>Innovative car lift system delivers vehicles directly to secure parking — no ramps, no fuss.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="4"/><line x1="6" y1="20" x2="42" y2="20"/><line x1="20" y1="20" x2="20" y2="42"/></svg>
+                    </div>
+                    <h4>Communal Rec Area</h4>
+                    <p>Shared recreation space for residents — designed for gatherings, relaxation, and community.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M16 24 L22 30 L32 18"/></svg>
+                    </div>
+                    <h4>Low Maintenance</h4>
+                    <p>Boutique scale of just nine residences means minimal shared infrastructure and lower ongoing costs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">Gallery</p>
+                <h2>A closer look</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-large reveal" data-index="0">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (2).jpg" alt="34 Holland Street exterior at dusk" loading="lazy">
+                    <div class="gallery-caption">Exterior — Street Frontage at Dusk</div>
+                </div>
+                <div class="gallery-item reveal delay-1" data-index="1">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (5).jpg" alt="Building detail at dusk" loading="lazy">
+                    <div class="gallery-caption">Architectural Detail</div>
+                </div>
+                <div class="gallery-item reveal delay-2" data-index="2">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (8).jpg" alt="Holland Residences exterior view" loading="lazy">
+                    <div class="gallery-caption">Evening Elevation</div>
+                </div>
+                <div class="gallery-item reveal delay-1" data-index="3">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (12).jpg" alt="Building at twilight" loading="lazy">
+                    <div class="gallery-caption">Twilight Perspective</div>
+                </div>
+                <div class="gallery-item reveal delay-2" data-index="4">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (16).jpg" alt="Holland Residences facade" loading="lazy">
+                    <div class="gallery-caption">Facade — Dusk Lighting</div>
+                </div>
+                <div class="gallery-item gallery-large reveal" data-index="5">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (20).jpg" alt="Panoramic exterior view" loading="lazy">
+                    <div class="gallery-caption">Panoramic — Holland Residences</div>
+                </div>
+                <div class="gallery-item reveal delay-1" data-index="6">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (24).jpg" alt="Building and landscaping" loading="lazy">
+                    <div class="gallery-caption">Landscaping & Entry</div>
+                </div>
+                <div class="gallery-item reveal delay-2" data-index="7">
+                    <img src="images/34 Holland Street Toowong - Dusk Photos (27).jpg" alt="Building approach" loading="lazy">
+                    <div class="gallery-caption">Street Approach</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+
+    <!-- Location -->
+    <section class="section location" id="location">
+        <div class="container">
+            <div class="location-grid">
+                <div class="location-text reveal">
+                    <p class="section-label">The Location</p>
+                    <h2>Toowong — <br>Brisbane's leafy heartbeat</h2>
+                    <p class="location-body">Positioned in one of Brisbane's most sought-after inner-west suburbs, 34 Holland St places you moments from everything that makes Toowong exceptional.</p>
+                    <div class="location-list">
+                        <div class="location-item">
+                            <span class="loc-dist">350m</span>
+                            <span>Toowong Village Shopping</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="loc-dist">400m</span>
+                            <span>Toowong Train Station</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="loc-dist">1.2km</span>
+                            <span>Mt Coot-tha Botanic Gardens</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="loc-dist">3km</span>
+                            <span>Brisbane CBD</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="loc-dist">5min</span>
+                            <span>UQ St Lucia Campus</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="loc-dist">10min</span>
+                            <span>Brisbane Airport (via Legacy Way)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-map reveal delay-1">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.8!2d152.977!3d-27.484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9150a4a76aa8d9%3A0x502a35af3deaf30!2sHolland+St%2C+Toowong+QLD+4066!5e0!3m2!1sen!2sau!4v1679000000000"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="34 Holland St Toowong map">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-text reveal">
+                    <p class="section-label">Get In Touch</p>
+                    <h2>Register your interest</h2>
+                    <p class="contact-body">Interested in securing one of just nine residences at Holland Residences? Get in touch with Harrison directly, or complete the form and we'll be in contact.</p>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <strong>Sales Enquiries</strong>
+                            <a href="tel:+61406707366">Harrison Mallan</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <strong>Phone</strong>
+                            <a href="tel:+61406707366">0406 707 366</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form reveal delay-1" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Which residence interests you?</label>
+                        <select id="interest" name="interest">
+                            <option value="">Select a residence</option>
+                            <option value="101">101 — Ground Floor · Courtyard · $2,275,000</option>
+                            <option value="102">102 — Ground Floor · Courtyard · $2,300,000</option>
+                            <option value="201">201 — Level 2 · Front · $1,700,000</option>
+                            <option value="202">202 — Level 2 · Rear · $1,650,000</option>
+                            <option value="301">301 — Level 3 · Front · $1,775,000</option>
+                            <option value="302">302 — Level 3 · Rear · $1,725,000</option>
+                            <option value="401">401 — Level 4 · Front · $1,850,000</option>
+                            <option value="402">402 — Level 4 · Rear · $1,800,000</option>
+                            <option value="501">501 — Level 5 · Penthouse · $2,500,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <!-- Honeypot — invisible to humans, catches bots -->
+                    <div class="form-hp" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <button type="submit" class="form-submit" id="formSubmit">Submit Enquiry</button>
+                    <div class="form-status" id="formStatus"></div>
+                    <p class="form-privacy">Your details are stored securely and will only be used to respond to your enquiry. We will never share your information with third parties.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="#hero" class="nav-logo footer-logo">Holland<span>Residences</span></a>
+                    <p>34 Holland St, Toowong QLD 4066</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#residences">Residences</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#location">Location</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2026 Holland Residences. All rights reserved.</p>
+                    <p>Images are indicative only.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Google Analytics — replace UA-XXXXXXXXX with your Measurement ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <!-- Meta Pixel — replace YOUR_PIXEL_ID with your Facebook Pixel ID -->
+    <!--
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    -->
+</body>
+</html>
