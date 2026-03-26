@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (err) {
             console.error('Submission error:', err);
-            showStatus('Something went wrong. Please call Harrison directly on 0406 707 366.', 'error');
+            showStatus('Something went wrong. Please call Suzy directly on 0435 433 675.', 'error');
             submitBtn.textContent = originalText;
             submitBtn.style.opacity = '1';
             submitBtn.disabled = false;
