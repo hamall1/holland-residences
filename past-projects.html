@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Projects — HEM Developments</title>
+    <meta name="description" content="Explore completed projects by HEM Developments — quality residential builds across Brisbane including Kedron, Rocklea, and Clayfield.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Past Projects — HEM Developments">
+    <meta property="og:description" content="Explore completed projects by HEM Developments across Brisbane.">
+    <meta property="og:url" content="https://ehmbuild.com.au/past-projects.html">
+    <meta property="og:site_name" content="HEM Developments">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Past Projects Page Specific Styles */
+        .pp-hero {
+            padding: calc(var(--section-pad) + 60px) 0 var(--section-pad);
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .pp-hero .section-label {
+            margin-bottom: 20px;
+        }
+
+        .pp-hero h1 {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .pp-hero p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+        }
+
+        .pp-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.4s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .pp-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .pp-card-image {
+            width: 100%;
+            height: 280px;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pp-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pp-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+        }
+
+        .pp-placeholder svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.4;
+        }
+
+        .pp-placeholder span {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .pp-card-body {
+            padding: 28px;
+        }
+
+        .pp-card-location {
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .pp-card-body h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .pp-card-body p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .pp-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            background: rgba(232, 226, 216, 0.12);
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(232, 226, 216, 0.25);
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .pp-cta {
+            text-align: center;
+            padding: 40px 0 0;
+        }
+
+        .pp-cta a {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background 0.4s var(--ease), transform 0.3s var(--ease);
+        }
+
+        .pp-cta a:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        /* Back link */
+        .pp-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 24px;
+            transition: color 0.3s var(--ease);
+        }
+
+        .pp-back:hover {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .pp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav scrolled" id="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">Holland<span>Residences</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#residences">Residences</a></li>
+                <li><a href="/#gallery">Gallery</a></li>
+                <li><a href="/past-projects.html" class="active">Past Projects</a></li>
+                <li><a href="/#contact" class="nav-cta">Register Interest</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pp-hero">
+        <div class="container">
+            <p class="section-label">Our Track Record</p>
+            <h1>Past Projects</h1>
+            <p>A selection of completed developments by HEM Developments across South East Queensland — delivering quality residential builds with attention to detail.</p>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+        <div class="container">
+            <a href="/" class="pp-back">← Back to Holland Residences</a>
+
+            <div class="pp-grid">
+
+                <!-- Holland House, Kedron -->
+                <div class="pp-card reveal">
+                    <div class="pp-card-image">
+                        <div class="pp-placeholder">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="4" y="12" width="40" height="32" rx="2"/>
+                                <path d="M4 20 L24 8 L44 20"/>
+                                <rect x="18" y="28" width="12" height="16"/>
+                                <rect x="10" y="24" width="8" height="8"/>
+                                <rect x="30" y="24" width="8" height="8"/>
+                            </svg>
+                            <span>Photo coming soon</span>
+                        </div>
+                    </div>
+                    <div class="pp-card-body">
+                        <p class="pp-card-location">Kedron, QLD</p>
+                        <h3>Holland House</h3>
+                        <p>A quality residential development in the sought-after suburb of Kedron, delivering modern living with considered design and premium finishes throughout.</p>
+                        <div>
+                            <span class="pp-tag">Residential</span>
+                            <span class="pp-tag">Kedron</span>
+                            <span class="pp-tag">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Darnley St, Rocklea -->
+                <div class="pp-card reveal delay-1">
+                    <div class="pp-card-image">
+                        <div class="pp-placeholder">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="4" y="12" width="40" height="32" rx="2"/>
+                                <path d="M4 20 L24 8 L44 20"/>
+                                <rect x="18" y="28" width="12" height="16"/>
+                                <rect x="10" y="24" width="8" height="8"/>
+                                <rect x="30" y="24" width="8" height="8"/>
+                            </svg>
+                            <span>Photo coming soon</span>
+                        </div>
+                    </div>
+                    <div class="pp-card-body">
+                        <p class="pp-card-location">Rocklea, QLD</p>
+                        <h3>Darnley Street</h3>
+                        <p>A well-executed residential project on Darnley Street in Rocklea, showcasing HEM Developments' commitment to quality construction and thoughtful planning.</p>
+                        <div>
+                            <span class="pp-tag">Residential</span>
+                            <span class="pp-tag">Rocklea</span>
+                            <span class="pp-tag">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gellibrand St, Clayfield -->
+                <div class="pp-card reveal delay-2">
+                    <div class="pp-card-image">
+                        <div class="pp-placeholder">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="4" y="12" width="40" height="32" rx="2"/>
+                                <path d="M4 20 L24 8 L44 20"/>
+                                <rect x="18" y="28" width="12" height="16"/>
+                                <rect x="10" y="24" width="8" height="8"/>
+                                <rect x="30" y="24" width="8" height="8"/>
+                            </svg>
+                            <span>Photo coming soon</span>
+                        </div>
+                    </div>
+                    <div class="pp-card-body">
+                        <p class="pp-card-location">Clayfield, QLD</p>
+                        <h3>Gellibrand Street</h3>
+                        <p>A premium residential development in Brisbane's prestigious Clayfield, designed to complement the established character of the neighbourhood with contemporary living.</p>
+                        <div>
+                            <span class="pp-tag">Residential</span>
+                            <span class="pp-tag">Clayfield</span>
+                            <span class="pp-tag">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pp-cta">
+                <a href="/#residences">View Current Project — Holland Residences</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo footer-logo">Holland<span>Residences</span></a>
+                    <p>34 Holland St, Toowong QLD 4066</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#about">About</a>
+                    <a href="/#residences">Residences</a>
+                    <a href="/#gallery">Gallery</a>
+                    <a href="/#location">Location</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="/past-projects.html">Past Projects</a>
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2026 HEM Developments. All rights reserved.</p>
+                    <p>Images are indicative only.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('open');
+            });
+        }
+
+        // Reveal on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8JWGZXZE9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-F8JWGZXZE9');
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '855860000776642');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=855860000776642&ev=PageView&noscript=1"
+    /></noscript>
+</body>
+</html>
