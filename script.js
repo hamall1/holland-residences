@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // The anon key is safe for client-side use — Row Level Security
     // on the database ensures visitors can only INSERT, not read.
     // ============================================================
-    const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+    const SUPABASE_URL = 'https://emiuttcchwrmaldgtodq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_Ea3JHaEQKaSpIa1bnRUv3Q_SiZ6yZc3';
 
     let supabase = null;
     if (typeof window.supabase !== 'undefined' && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
