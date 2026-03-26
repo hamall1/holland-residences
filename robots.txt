@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hollandresidences.com.au/sitemap.xml
+Sitemap: https://ehmbuild.com.au/sitemap.xml
