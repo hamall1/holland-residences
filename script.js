@@ -150,6 +150,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ---- Floor Plan Modal ---- //
+    const floorplanModal = document.getElementById('floorplanModal');
+    const floorplanImg = document.getElementById('floorplanImg');
+    const floorplanLabel = document.getElementById('floorplanLabel');
+    const floorplanClose = document.getElementById('floorplanClose');
+    const floorplanOverlay = floorplanModal.querySelector('.floorplan-modal-overlay');
+
+    function openFloorplan(src, label) {
+        floorplanImg.src = src;
+        floorplanImg.alt = label + ' Floor Plan';
+        floorplanLabel.textContent = label;
+        floorplanModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Track floor plan view in GA4
+        if (typeof gtag === 'function') {
+            gtag('event', 'view_floor_plan', {
+                event_category: 'Engagement',
+                event_label: label
+            });
+        }
+    }
+
+    function closeFloorplan() {
+        floorplanModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.unit-floorplan-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const src = btn.getAttribute('data-floorplan');
+            const label = btn.getAttribute('data-unit-label');
+            openFloorplan(src, label);
+        });
+    });
+
+    floorplanClose.addEventListener('click', closeFloorplan);
+    floorplanOverlay.addEventListener('click', closeFloorplan);
+
+    document.addEventListener('keydown', (e) => {
+        if (floorplanModal.classList.contains('active') && e.key === 'Escape') {
+            closeFloorplan();
+        }
+    });
+
     // ---- Contact Form Handler ---- //
     const form = document.getElementById('contactForm');
     const submitBtn = document.getElementById('formSubmit');
