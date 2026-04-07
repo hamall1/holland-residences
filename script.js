@@ -1,5 +1,5 @@
 /* =============================================
-   HEM Developments — Interactive Scripts
+   HEM Developments - Interactive Scripts
    ============================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     // SUPABASE CONFIGURATION
     // Replace these with your Supabase project credentials.
-    // The anon key is safe for client-side use — Row Level Security
+    // The anon key is safe for client-side use - Row Level Security
     // on the database ensures visitors can only INSERT, not read.
     // ============================================================
     const SUPABASE_URL = 'https://emiuttcchwrmaldgtodq.supabase.co';
@@ -72,38 +72,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // ---- Gallery Lightbox ---- //
+    // ---- Gallery Carousel & Lightbox ---- //
+    const allSlides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const carouselCurrentEl = document.getElementById('carouselCurrent');
+    const carouselTotalEl = document.getElementById('carouselTotal');
+    const galleryTabs = document.querySelectorAll('.gallery-tab');
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxCounter = document.getElementById('lightboxCounter');
     const lightboxClose = document.getElementById('lightboxClose');
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
-    const galleryItems = document.querySelectorAll('.gallery-item');
 
-    let currentIndex = 0;
-    const galleryImages = [];
+    let activeSlides = [...allSlides];
+    let lightboxIndex = 0;
 
-    galleryItems.forEach((item, i) => {
-        const img = item.querySelector('img');
-        const caption = item.querySelector('.gallery-caption');
-        galleryImages.push({
-            src: img.src,
-            alt: img.alt,
-            caption: caption ? caption.textContent : ''
+    // Build filtered slide set
+    function filterSlides(category) {
+        if (category === 'all') {
+            activeSlides = [...allSlides];
+        } else {
+            activeSlides = allSlides.filter(s => s.dataset.category === category);
+        }
+
+        // Show/hide slides with fade animation
+        allSlides.forEach(s => {
+            if (category === 'all' || s.dataset.category === category) {
+                s.style.display = '';
+                requestAnimationFrame(() => { s.style.opacity = '1'; s.style.transform = 'scale(1)'; });
+            } else {
+                s.style.opacity = '0';
+                s.style.transform = 'scale(0.95)';
+                setTimeout(() => { s.style.display = 'none'; }, 300);
+            }
         });
 
-        item.addEventListener('click', () => {
-            currentIndex = i;
+        // Update counter
+        carouselCurrentEl.textContent = activeSlides.length;
+        carouselTotalEl.textContent = allSlides.length;
+    }
+
+    // Tab filtering
+    galleryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            galleryTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            filterSlides(tab.dataset.category);
+        });
+    });
+
+    // Click slide to open lightbox
+    allSlides.forEach(slide => {
+        slide.addEventListener('click', () => {
+            lightboxIndex = activeSlides.indexOf(slide);
+            if (lightboxIndex === -1) lightboxIndex = 0;
             openLightbox();
         });
     });
 
+    // ---- Lightbox ---- //
     function openLightbox() {
-        const data = galleryImages[currentIndex];
-        lightboxImg.src = data.src;
-        lightboxImg.alt = data.alt;
-        lightboxCaption.textContent = data.caption;
+        const slide = activeSlides[lightboxIndex];
+        const img = slide.querySelector('img');
+        const caption = slide.querySelector('.carousel-caption');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = caption ? caption.textContent : '';
+        lightboxCounter.textContent = `${lightboxIndex + 1} / ${activeSlides.length}`;
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -113,30 +150,48 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    function nextImage() {
-        currentIndex = (currentIndex + 1) % galleryImages.length;
+    function lightboxGoNext() {
+        lightboxIndex = (lightboxIndex + 1) % activeSlides.length;
         openLightbox();
     }
 
-    function prevImage() {
-        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    function lightboxGoPrev() {
+        lightboxIndex = (lightboxIndex - 1 + activeSlides.length) % activeSlides.length;
         openLightbox();
     }
 
     lightboxClose.addEventListener('click', closeLightbox);
-    lightboxNext.addEventListener('click', nextImage);
-    lightboxPrev.addEventListener('click', prevImage);
+    lightboxNext.addEventListener('click', lightboxGoNext);
+    lightboxPrev.addEventListener('click', lightboxGoPrev);
 
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
+        if (e.target === lightbox || e.target.classList.contains('lightbox-bottom')) closeLightbox();
     });
 
+    // Lightbox swipe support
+    let lbTouchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+        lbTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+        const diff = lbTouchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) lightboxGoNext();
+            else lightboxGoPrev();
+        }
+    }, { passive: true });
+
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') nextImage();
-        if (e.key === 'ArrowLeft') prevImage();
+        if (lightbox.classList.contains('active')) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') lightboxGoNext();
+            if (e.key === 'ArrowLeft') lightboxGoPrev();
+        }
     });
+
+    // Initialize
+    filterSlides('all');
 
     // ---- Unit Enquiry Buttons ---- //
     document.querySelectorAll('.unit-btn').forEach(btn => {
@@ -216,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         hideStatus();
 
-        // Honeypot check — if the hidden field is filled, it's a bot
+        // Honeypot check - if the hidden field is filled, it's a bot
         const honeypot = document.getElementById('website');
         if (honeypot && honeypot.value) {
             // Pretend it worked to not alert the bot

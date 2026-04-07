@@ -2,6 +2,11 @@
 .DS_Store
 Thumbs.db
 
+# Originals / backups (large uncompressed images)
+images/originals/
+images/floorplans/originals/
+images/*_MARKUP.jpg
+
 # Environment
 .env
 .env.local

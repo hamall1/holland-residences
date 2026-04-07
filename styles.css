@@ -1,11 +1,11 @@
 /* =============================================
-   HEM Developments — 34 Holland St Toowong
+   HEM Developments - 34 Holland St Toowong
    Premium Property Website Stylesheet
    ============================================= */
 
 /* ---- Custom Properties / Design Tokens ---- */
 :root {
-    /* Colour Palette — warm grey tonal */
+    /* Colour Palette - warm grey tonal */
     --bg-primary: #7F7B77;
     --bg-secondary: #736F6B;
     --bg-tertiary: #8A8681;
@@ -771,50 +771,116 @@ h2 {
     background: var(--bg-secondary);
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+/* Category Filter Tabs */
+.gallery-tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
-.gallery-item {
+.gallery-tab {
+    padding: 8px 20px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border-light);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    white-space: nowrap;
+}
+
+.gallery-tab:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.gallery-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg-primary);
+}
+
+/* Carousel Container */
+.gallery-carousel {
+    position: relative;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.carousel-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    transition: none;
+    transform: none !important;
+}
+
+.carousel-slide {
     position: relative;
     overflow: hidden;
     border-radius: 4px;
     cursor: pointer;
+    aspect-ratio: 3/2;
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
 }
 
-.gallery-large {
-    grid-column: 1 / -1;
-    max-height: 700px;
-}
-
-.gallery-item img {
+.carousel-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s var(--ease);
 }
 
-.gallery-item:hover img {
-    transform: scale(1.04);
+.carousel-slide:hover img {
+    transform: scale(1.05);
 }
 
-.gallery-caption {
+.carousel-caption {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 24px;
-    background: linear-gradient(to top, rgba(110, 106, 102, 0.85), transparent);
-    font-size: 0.82rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(26, 25, 23, 0.8), transparent);
+    font-size: 0.78rem;
     font-weight: 400;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.9);
     transform: translateY(100%);
-    transition: transform 0.4s var(--ease);
+    transition: transform 0.35s var(--ease);
 }
 
-.gallery-item:hover .gallery-caption {
+.carousel-slide:hover .carousel-caption {
     transform: translateY(0);
+}
+
+/* Carousel Counter */
+.carousel-counter {
+    text-align: center;
+    margin-top: 24px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+}
+
+/* Carousel Arrows - hidden in grid mode */
+.carousel-arrow {
+    display: none;
+}
+
+/* Carousel Dots - hidden in grid mode */
+.carousel-dots {
+    display: none;
 }
 
 /* ---- Lightbox ---- */
@@ -822,13 +888,16 @@ h2 {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: rgba(80, 76, 72, 0.96);
+    background: rgba(20, 19, 17, 0.97);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s var(--ease);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .lightbox.active {
@@ -837,22 +906,32 @@ h2 {
 }
 
 .lightbox-img {
-    max-width: 90%;
-    max-height: 85vh;
+    max-width: 88%;
+    max-height: 78vh;
     object-fit: contain;
     border-radius: 4px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s var(--ease);
 }
 
 .lightbox-close {
     position: absolute;
-    top: 24px; right: 32px;
-    font-size: 2.5rem;
-    color: var(--text-secondary);
+    top: 20px;
+    right: 28px;
+    font-size: 2.2rem;
+    color: rgba(255, 255, 255, 0.5);
     transition: color 0.3s var(--ease);
     line-height: 1;
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
 }
 
-.lightbox-close:hover { color: var(--text-primary); }
+.lightbox-close:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
 
 .lightbox-prev,
 .lightbox-next {
@@ -860,24 +939,54 @@ h2 {
     top: 50%;
     transform: translateY(-50%);
     font-size: 3rem;
-    color: var(--text-secondary);
-    transition: color 0.3s var(--ease);
-    padding: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s var(--ease), background 0.3s var(--ease);
+    padding: 16px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
 }
 
-.lightbox-prev { left: 16px; }
-.lightbox-next { right: 16px; }
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
 .lightbox-prev:hover,
-.lightbox-next:hover { color: var(--accent); }
+.lightbox-next:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.lightbox-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    background: linear-gradient(to top, rgba(20, 19, 17, 0.7), transparent);
+}
 
 .lightbox-caption {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 0.85rem;
-    color: var(--text-muted);
-    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.04em;
+}
+
+.lightbox-counter {
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.1em;
 }
 
 /* ---- Location ---- */
@@ -1124,7 +1233,7 @@ h2 {
     transform: none;
 }
 
-/* Honeypot — hidden from real users, visible to spam bots */
+/* Honeypot - hidden from real users, visible to spam bots */
 .form-hp {
     position: absolute;
     left: -9999px;
@@ -1263,12 +1372,41 @@ h2 {
         gap: 32px;
     }
 
-    .gallery-grid {
-        grid-template-columns: 1fr;
+    .carousel-track {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
     }
 
-    .gallery-large {
-        max-height: 300px;
+    .gallery-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        gap: 6px;
+    }
+
+    .gallery-tab {
+        padding: 6px 14px;
+        font-size: 0.65rem;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        width: 44px;
+        height: 44px;
+        font-size: 2.2rem;
+    }
+
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
+
+    .lightbox-img {
+        max-width: 95%;
+        max-height: 72vh;
+    }
+
+    .lightbox-bottom {
+        padding: 16px 20px;
     }
 
     .location-grid {
