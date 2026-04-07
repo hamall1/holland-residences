@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Plan - Holland Residences (Internal)</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .mp-page {
+            padding: calc(var(--section-pad) + 60px) 0 var(--section-pad);
+        }
+
+        .mp-container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .mp-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bg-primary);
+            background: var(--accent);
+            padding: 4px 12px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .mp-title {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .mp-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        .mp-section {
+            margin-bottom: 56px;
+        }
+
+        .mp-section-num {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .mp-section h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .mp-section h3 {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin: 28px 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .mp-section p, .mp-section li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .mp-section ul, .mp-section ol {
+            padding-left: 20px;
+            margin: 12px 0;
+        }
+
+        .mp-section li {
+            margin-bottom: 8px;
+        }
+
+        .mp-divider {
+            border: none;
+            border-top: 1px solid var(--border-light);
+            margin: 56px 0;
+        }
+
+        .mp-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 28px;
+            margin: 20px 0;
+        }
+
+        .mp-card-title {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .mp-card p, .mp-card li {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .mp-card ul {
+            padding-left: 18px;
+            margin: 8px 0 0;
+        }
+
+        .mp-card li {
+            margin-bottom: 6px;
+        }
+
+        .mp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 640px) {
+            .mp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mp-stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px 24px;
+            text-align: center;
+        }
+
+        .mp-stat-value {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .mp-stat-label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .mp-code {
+            background: rgba(232, 226, 216, 0.08);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 16px 20px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.82rem;
+            color: var(--accent);
+            overflow-x: auto;
+            margin: 12px 0;
+            line-height: 1.6;
+            word-break: break-all;
+        }
+
+        .mp-highlight {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .mp-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .mp-tag-google {
+            color: #4285f4;
+            background: rgba(66, 133, 244, 0.12);
+            border: 1px solid rgba(66, 133, 244, 0.25);
+        }
+
+        .mp-tag-meta {
+            color: #1877f2;
+            background: rgba(24, 119, 242, 0.12);
+            border: 1px solid rgba(24, 119, 242, 0.25);
+        }
+
+        .mp-tag-both {
+            color: var(--accent);
+            background: rgba(232, 226, 216, 0.12);
+            border: 1px solid rgba(232, 226, 216, 0.25);
+        }
+
+        .mp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        .mp-table th {
+            text-align: left;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .mp-table td {
+            padding: 12px 14px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(232, 226, 216, 0.08);
+            vertical-align: top;
+        }
+
+        .mp-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .mp-note {
+            background: rgba(232, 226, 216, 0.06);
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .mp-note p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .mp-note strong {
+            color: var(--text-primary);
+        }
+
+        .mp-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 32px;
+            transition: color 0.3s ease;
+        }
+
+        .mp-back:hover {
+            color: var(--text-primary);
+        }
+
+        .mp-footer {
+            text-align: center;
+            padding: 40px 0 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .mp-footer p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav scrolled" id="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">Holland<span>Residences</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#residences">Residences</a></li>
+                <li><a href="/#gallery">Gallery</a></li>
+                <li><a href="/#location">Location</a></li>
+                <li><a href="/past-projects.html">Past Projects</a></li>
+                <li><a href="/#contact" class="nav-cta">Register Interest</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="mp-page">
+        <div class="mp-container">
+
+            <a href="/" class="mp-back">← Back to Holland Residences</a>
+
+            <span class="mp-badge">Internal Document</span>
+            <h1 class="mp-title">Marketing Plan</h1>
+            <p class="mp-subtitle">A quick-reference overview for running Google Ads and Meta (Facebook/Instagram) campaigns to drive enquiries for Holland Residences.</p>
+
+            <!-- ============================================ -->
+            <!-- THE PRODUCT -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">01</p>
+                <h2>What We're Selling</h2>
+                <div class="mp-grid">
+                    <div class="mp-stat">
+                        <div class="mp-stat-value">9</div>
+                        <div class="mp-stat-label">Boutique Residences</div>
+                    </div>
+                    <div class="mp-stat">
+                        <div class="mp-stat-value">$1.69M+</div>
+                        <div class="mp-stat-label">Starting Price</div>
+                    </div>
+                    <div class="mp-stat">
+                        <div class="mp-stat-value">3/2/2</div>
+                        <div class="mp-stat-label">Bed / Bath / Car</div>
+                    </div>
+                    <div class="mp-stat">
+                        <div class="mp-stat-value">Toowong</div>
+                        <div class="mp-stat-label">Inner-West Brisbane</div>
+                    </div>
+                </div>
+                <p>Key selling points to use across all ad copy:</p>
+                <ul>
+                    <li>Boutique - only 9 residences (exclusivity/scarcity)</li>
+                    <li>Premium finishes - travertine stone, Miele appliances, car lift</li>
+                    <li>Location - 4km to CBD, walking distance to Toowong Village</li>
+                    <li>Developer track record - 70+ dwellings across 12 Brisbane projects</li>
+                </ul>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- TARGET AUDIENCE -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">02</p>
+                <h2>Target Audience</h2>
+                <p>The buyer profile for $1.69M+ apartments is narrow. Focus budget on these segments:</p>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Primary: Owner-Occupier Downsizers</p>
+                    <ul>
+                        <li>Age 50-70, couples or singles</li>
+                        <li>Currently own a large house in Brisbane's western suburbs</li>
+                        <li>Looking for low-maintenance, premium living without leaving the area</li>
+                        <li>Interests: property, home design, luxury lifestyle, travel</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Secondary: Professional Couples / Young Families</p>
+                    <ul>
+                        <li>Age 30-45, dual income</li>
+                        <li>Upgrading from a unit or first home</li>
+                        <li>Value proximity to UQ, hospitals, or CBD</li>
+                        <li>Interests: property investment, new developments, inner-city living</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Tertiary: Investors</p>
+                    <ul>
+                        <li>Age 35-60, looking for quality assets in Brisbane growth corridors</li>
+                        <li>Interested in off-the-plan or new-build opportunities</li>
+                        <li>May be interstate (Sydney/Melbourne buyers moving equity to Brisbane)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- GOOGLE ADS -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">03</p>
+                <h2>Google Ads Strategy</h2>
+                <p><span class="mp-tag mp-tag-google">Search Ads</span> <span class="mp-tag mp-tag-google">Display</span></p>
+                <p>Google Ads captures people who are actively searching. These are high-intent leads - they're already in the market.</p>
+
+                <h3>Campaign Structure</h3>
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th>Campaign</th>
+                            <th>Type</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Brand</strong></td>
+                            <td>Search</td>
+                            <td>Catch people searching "Holland Residences", "EHM Build", "34 Holland St"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Location</strong></td>
+                            <td>Search</td>
+                            <td>Target "apartments Toowong", "new apartments Brisbane west", "apartments near UQ"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Product</strong></td>
+                            <td>Search</td>
+                            <td>Target "3 bedroom apartments Brisbane", "luxury apartments Brisbane", "boutique apartments Queensland"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Retargeting</strong></td>
+                            <td>Display</td>
+                            <td>Show banner ads to people who visited the site but didn't enquire</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Recommended Keywords</h3>
+                <div class="mp-card">
+                    <p><strong>High Intent (Bid Higher)</strong></p>
+                    <ul>
+                        <li>"apartments for sale Toowong"</li>
+                        <li>"new apartments Brisbane"</li>
+                        <li>"3 bedroom apartments Toowong"</li>
+                        <li>"luxury apartments Brisbane inner west"</li>
+                        <li>"off the plan apartments Brisbane"</li>
+                        <li>"boutique apartments Toowong"</li>
+                    </ul>
+                    <p style="margin-top: 16px;"><strong>Brand Defence</strong></p>
+                    <ul>
+                        <li>"Holland Residences"</li>
+                        <li>"Holland Residences Toowong"</li>
+                        <li>"EHM Build"</li>
+                        <li>"ehmbuild"</li>
+                        <li>"34 Holland Street Toowong"</li>
+                    </ul>
+                </div>
+
+                <h3>Negative Keywords (Exclude These)</h3>
+                <p>Add these to avoid wasting budget on irrelevant clicks:</p>
+                <ul>
+                    <li>"rent", "rental", "for rent"</li>
+                    <li>"cheap", "budget", "affordable"</li>
+                    <li>"student accommodation"</li>
+                    <li>"1 bedroom", "studio"</li>
+                    <li>"commercial", "office"</li>
+                </ul>
+
+                <h3>Ad Copy Examples</h3>
+                <div class="mp-card">
+                    <p><strong>Headline 1:</strong> Holland Residences | Toowong</p>
+                    <p><strong>Headline 2:</strong> 3 Bed Boutique Apartments From $1.69M</p>
+                    <p><strong>Headline 3:</strong> Only 9 Residences - Enquire Now</p>
+                    <p><strong>Description:</strong> Premium 3 bed, 2 bath, 2 car residences at 34 Holland St, Toowong. Travertine stone, Miele appliances, car lift. Register your interest today.</p>
+                </div>
+
+                <h3>Settings</h3>
+                <ul>
+                    <li><strong>Location targeting:</strong> Brisbane metro + Gold Coast + Sunshine Coast. Optionally add Sydney and Melbourne for the investor audience.</li>
+                    <li><strong>Bid strategy:</strong> Start with "Maximise Clicks" for the first 2 weeks to get data, then switch to "Maximise Conversions" once you have 15+ form submissions tracked.</li>
+                    <li><strong>Ad schedule:</strong> Run 7am - 10pm (no point paying for clicks at 3am).</li>
+                    <li><strong>Device:</strong> All devices, but monitor mobile vs desktop conversion rates weekly.</li>
+                </ul>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- META ADS -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">04</p>
+                <h2>Meta (Facebook + Instagram) Strategy</h2>
+                <p><span class="mp-tag mp-tag-meta">Facebook</span> <span class="mp-tag mp-tag-meta">Instagram</span></p>
+                <p>Meta ads are for creating demand, not capturing it. People aren't searching for apartments - you're putting Holland Residences in front of the right people and making them want to learn more.</p>
+
+                <h3>Campaign Structure (3-Stage Funnel)</h3>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Stage 1: Awareness</p>
+                    <p><strong>Objective:</strong> Reach / Video Views</p>
+                    <p><strong>Goal:</strong> Get Holland Residences in front of as many qualified eyeballs as possible.</p>
+                    <ul>
+                        <li>Use the best exterior dusk photo or a short video walkthrough</li>
+                        <li>Short, punchy copy: "A new benchmark for boutique living in Toowong. Only 9 residences."</li>
+                        <li>Target broad demographics in your audience segments</li>
+                        <li>Budget: ~30% of Meta spend</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Stage 2: Consideration</p>
+                    <p><strong>Objective:</strong> Traffic (send to website)</p>
+                    <p><strong>Goal:</strong> Drive qualified visitors to explore the residences page.</p>
+                    <ul>
+                        <li>Carousel ad showing: kitchen, living, rooftop, exterior</li>
+                        <li>Highlight specific features: "Miele appliances. Travertine stone. Private car lift."</li>
+                        <li>Target people who engaged with Stage 1 ads (custom audience)</li>
+                        <li>Budget: ~40% of Meta spend</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Stage 3: Conversion</p>
+                    <p><strong>Objective:</strong> Leads (form submissions)</p>
+                    <p><strong>Goal:</strong> Get form submissions from warm prospects.</p>
+                    <ul>
+                        <li>Direct CTA: "Register your interest - only 9 residences available"</li>
+                        <li>Social proof: mention "70+ dwellings delivered across Brisbane"</li>
+                        <li>Retarget website visitors + Stage 2 engagers</li>
+                        <li>Budget: ~30% of Meta spend</li>
+                    </ul>
+                </div>
+
+                <h3>Audience Targeting</h3>
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th>Audience</th>
+                            <th>Targeting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Downsizers</strong></td>
+                            <td>Age 50-70, Brisbane, interests: "real estate", "property", "home design", "luxury travel". Household income: top 25%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professionals</strong></td>
+                            <td>Age 30-45, Brisbane, interests: "property investment", "new homes", "architecture". Job titles: manager, director, professional.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Site Retargeting</strong></td>
+                            <td>Custom audience of anyone who visited ehmbuild.com.au in the last 30 days (Meta Pixel is already installed)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lookalike</strong></td>
+                            <td>Once you have 50+ enquiries, create a 1% lookalike audience from form submissions</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Ad Creative Tips</h3>
+                <ul>
+                    <li><strong>Best performing format:</strong> Carousel (multiple images) and single image with strong CTA</li>
+                    <li><strong>Use real photos only</strong> - the gallery images from the site are perfect. Avoid renders or stock images.</li>
+                    <li><strong>Lead with the exterior dusk shot</strong> - it's the strongest image and stops the scroll</li>
+                    <li><strong>Keep copy short:</strong> 2-3 lines max for the primary text on feed ads</li>
+                    <li><strong>Always include price:</strong> "From $1.69M" qualifies leads upfront so you don't waste budget on people who can't afford it</li>
+                </ul>
+
+                <h3>Example Ad Copy</h3>
+                <div class="mp-card">
+                    <p><strong>Primary text:</strong> "Nine boutique residences in Toowong. 3 bed, 2 bath, 2 car from $1.69M. Premium finishes throughout - travertine stone, Miele appliances, and a private car lift. Only a few remaining."</p>
+                    <p style="margin-top: 12px;"><strong>Headline:</strong> Holland Residences - Now Selling</p>
+                    <p><strong>Description:</strong> Register your interest at ehmbuild.com.au</p>
+                    <p><strong>CTA Button:</strong> Learn More</p>
+                </div>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- UTM TRACKING -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">05</p>
+                <h2>UTM Tracking Setup</h2>
+                <p><span class="mp-tag mp-tag-both">Critical</span></p>
+                <p>Every ad link should include UTM parameters so we can track which ads are generating enquiries in Google Analytics. Use this format for your landing page URLs:</p>
+
+                <h3>Google Ads</h3>
+                <div class="mp-code">
+                    https://ehmbuild.com.au/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=holland_search&amp;utm_content=brand_keywords
+                </div>
+
+                <h3>Facebook / Instagram</h3>
+                <div class="mp-code">
+                    https://ehmbuild.com.au/?utm_source=facebook&amp;utm_medium=cpc&amp;utm_campaign=holland_awareness&amp;utm_content=dusk_exterior
+                </div>
+
+                <h3>Instagram Story</h3>
+                <div class="mp-code">
+                    https://ehmbuild.com.au/?utm_source=instagram&amp;utm_medium=story&amp;utm_campaign=holland_launch&amp;utm_content=carousel_kitchen
+                </div>
+
+                <div class="mp-note">
+                    <p><strong>How UTMs work:</strong> The website already captures these parameters automatically when someone submits the contact form. So when a lead comes in, you can see exactly which ad brought them to the site.</p>
+                </div>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- BUDGET -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">06</p>
+                <h2>Budget Guide</h2>
+                <p>For a premium property at this price point, here's a sensible starting budget. You can scale up once you see what's converting.</p>
+
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Daily Budget</th>
+                            <th>Monthly</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Google Search</strong></td>
+                            <td>$30 - $50/day</td>
+                            <td>$900 - $1,500</td>
+                            <td>High intent. Best for capturing active searchers.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Display</strong></td>
+                            <td>$10 - $20/day</td>
+                            <td>$300 - $600</td>
+                            <td>Retargeting only. Don't use for cold traffic.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Meta (FB/IG)</strong></td>
+                            <td>$30 - $60/day</td>
+                            <td>$900 - $1,800</td>
+                            <td>Split across the 3-stage funnel above.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="mp-note">
+                    <p><strong>Total suggested starting budget:</strong> $2,100 - $3,900/month. This is a reasonable starting point for a premium property campaign in Brisbane. Re-evaluate after 4 weeks of data.</p>
+                </div>
+
+                <h3>What to Expect</h3>
+                <ul>
+                    <li><strong>Google Search CPC:</strong> $3 - $8 per click (property keywords are competitive)</li>
+                    <li><strong>Meta CPM:</strong> $15 - $40 per 1,000 impressions (varies by audience)</li>
+                    <li><strong>Conversion rate:</strong> 2 - 5% of website visitors will submit the form (industry average for new developments)</li>
+                    <li><strong>Expected leads:</strong> 15 - 40 enquiries per month at this budget</li>
+                </ul>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- HOW TO RUN THE ADS (Step by Step) -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">07</p>
+                <h2>How to Actually Run the Ads</h2>
+                <p>Here's the step-by-step process for getting campaigns live on each platform.</p>
+
+                <h3>Google Ads - Getting Started</h3>
+                <ol>
+                    <li>Go to <strong>ads.google.com</strong> and create an account (use the business Gmail)</li>
+                    <li>Click <strong>Tools > Linked Accounts > Google Analytics (GA4)</strong> and link your GA4 property (G-F8JWGZXZE9)</li>
+                    <li>Go to <strong>Goals > Conversions</strong>, click "Import", select GA4, and import the <code>generate_lead</code> event as your primary conversion</li>
+                    <li>Click <strong>+ New Campaign</strong>, select "Leads" as the goal</li>
+                    <li>Choose "Search" as campaign type</li>
+                    <li>Set your daily budget (start with $30/day)</li>
+                    <li>Set location to "Brisbane, Queensland" (radius targeting 50km)</li>
+                    <li>Add your keywords from the keyword list in Section 03</li>
+                    <li>Write 3 headlines and 2 descriptions (use the examples in Section 03)</li>
+                    <li>Set the destination URL to: <code>ehmbuild.com.au/?utm_source=google&utm_medium=cpc&utm_campaign=holland_search</code></li>
+                    <li>Add your negative keywords list</li>
+                    <li>Review, publish, and let it run for 48 hours before making changes</li>
+                </ol>
+
+                <h3>Meta Business - Getting Started</h3>
+                <ol>
+                    <li>Go to <strong>business.facebook.com</strong> and create a Business Suite account (or use existing)</li>
+                    <li>Go to <strong>Events Manager</strong> and verify the Meta Pixel (ID: 855860000776642) is receiving PageView events from ehmbuild.com.au</li>
+                    <li>In Events Manager, click <strong>Custom Conversions</strong> and create one for the "Lead" event</li>
+                    <li>Go to <strong>Ads Manager > + Create</strong></li>
+                    <li>For your first campaign, select <strong>"Traffic"</strong> as the objective (Stage 2 - Consideration)</li>
+                    <li>Name it clearly, e.g. "Holland Residences - Consideration - Apr 2026"</li>
+                    <li>At the Ad Set level, set your audience: Location (Brisbane metro), Age, Interests</li>
+                    <li>Set daily budget ($20/day to start for this campaign)</li>
+                    <li>Set placements to <strong>Automatic</strong> (Meta will optimise across Feed, Stories, Reels)</li>
+                    <li>At the Ad level, upload your best gallery photos as a Carousel</li>
+                    <li>Write the primary text, headline, and description (use examples in Section 04)</li>
+                    <li>Set the destination URL with UTM params</li>
+                    <li>Publish and let it run for 3-4 days before judging performance</li>
+                </ol>
+
+                <div class="mp-note">
+                    <p><strong>Important:</strong> Don't touch ads for the first 48-72 hours after launch. Both platforms need time to exit the "learning phase" where they figure out who to show your ads to. Making changes too early resets this process.</p>
+                </div>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- SUCCESS METRICS -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">08</p>
+                <h2>Success Metrics - What Good Looks Like</h2>
+                <p>These are the numbers you should be tracking and the benchmarks to aim for.</p>
+
+                <h3>Primary KPIs (The Ones That Matter)</h3>
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Target</th>
+                            <th>What It Means</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cost Per Lead (CPL)</strong></td>
+                            <td>Under $80</td>
+                            <td>How much you're paying for each form submission. This is the most important number. For a $1.69M product, anything under $80 per lead is excellent.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Form Submissions</strong></td>
+                            <td>15-40/month</td>
+                            <td>Total enquiries coming through the website. Track weekly.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conversion Rate</strong></td>
+                            <td>2-5%</td>
+                            <td>Percentage of website visitors who submit the form. Below 2% means the ads are bringing the wrong people. Above 5% is exceptional.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Open Home Attendance</strong></td>
+                            <td>5-10 per event</td>
+                            <td>Number of qualified buyers physically showing up. This is where deals close.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Secondary KPIs (Health Indicators)</h3>
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Google Ads Target</th>
+                            <th>Meta Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Click-Through Rate (CTR)</strong></td>
+                            <td>Above 3%</td>
+                            <td>Above 1%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost Per Click (CPC)</strong></td>
+                            <td>$3 - $8</td>
+                            <td>$0.50 - $2.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bounce Rate</strong></td>
+                            <td>Below 60%</td>
+                            <td>Below 70%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Avg. Session Duration</strong></td>
+                            <td>Above 1:30</td>
+                            <td>Above 1:00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Impressions</strong></td>
+                            <td>5,000+/week</td>
+                            <td>20,000+/week</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Red Flags - When to Take Action</h3>
+                <div class="mp-card">
+                    <ul>
+                        <li><strong>CTR below 1% on Google:</strong> Your ad copy isn't compelling enough, or keywords are too broad. Rewrite headlines.</li>
+                        <li><strong>CPC above $12:</strong> Keywords are too competitive. Try more specific long-tail keywords like "3 bed apartment Toowong" instead of "apartments Brisbane".</li>
+                        <li><strong>High traffic but no leads:</strong> The website is getting clicks but no form submissions. Check the landing page experience - is the form easy to find? Is it mobile-friendly?</li>
+                        <li><strong>CPL above $150:</strong> You're spending too much per lead. Pause the worst-performing ad sets and reallocate budget to what's working.</li>
+                        <li><strong>Lots of impressions but few clicks on Meta:</strong> Your creative is getting seen but not clicked. Change the image or video - try a different angle.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- MONITORING CADENCE -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">09</p>
+                <h2>Review and Monitoring Schedule</h2>
+                <p>Don't check stats every hour - it'll drive you crazy and the data isn't meaningful in small samples. Follow this cadence:</p>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Daily (5 minutes)</p>
+                    <ul>
+                        <li>Check total spend is on track (not overspending daily budget)</li>
+                        <li>Check for any disapproved ads or policy issues</li>
+                        <li>Read any new form submissions that came in</li>
+                        <li>Reply to leads within 2 hours during business hours</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Weekly (30 minutes - every Monday)</p>
+                    <ul>
+                        <li>Pull Google Ads and Meta dashboards side by side</li>
+                        <li>Record in a spreadsheet: spend, clicks, leads, CPL for each platform</li>
+                        <li>Check which keywords/audiences are performing best</li>
+                        <li>Pause any ad sets with CPL above $150 or CTR below 0.5%</li>
+                        <li>Increase budget by 20% on anything with CPL below $50</li>
+                        <li>Check Google Analytics: which pages are people viewing? How long are they staying?</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Fortnightly (1 hour - every other Friday)</p>
+                    <ul>
+                        <li>Review all leads received - how many converted to inspections?</li>
+                        <li>Refresh ad creative if performance is stagnating (ads fatigue after 2-3 weeks)</li>
+                        <li>Test new headlines or images (A/B test one variable at a time)</li>
+                        <li>Review search terms report in Google Ads - add irrelevant terms as negative keywords</li>
+                        <li>Check if open home dates are being promoted in ads (sync with Section 11)</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Monthly (Strategy Review)</p>
+                    <ul>
+                        <li>Total leads generated vs target (15-40)</li>
+                        <li>Total spend vs budget</li>
+                        <li>Lead-to-inspection conversion rate</li>
+                        <li>Which platform is delivering better quality leads?</li>
+                        <li>Decide whether to scale up, scale down, or reallocate budget between platforms</li>
+                        <li>Update ad copy with any new selling points (e.g. "Only 6 remaining")</li>
+                    </ul>
+                </div>
+
+                <div class="mp-note">
+                    <p><strong>Pro tip:</strong> Create a simple Google Sheet with columns: Week, Platform, Spend, Clicks, Leads, CPL, Notes. Update it every Monday. After 4 weeks you'll see clear trends on what's working and what's not.</p>
+                </div>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- INSTAGRAM INFLUENCER STRATEGY -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">10</p>
+                <h2>Instagram Influencer Strategy (500K Account)</h2>
+                <p><span class="mp-tag mp-tag-meta">Instagram</span> <span class="mp-tag mp-tag-both">Organic + Paid</span></p>
+                <p>Having access to a 500K follower Instagram account is a massive advantage. This gives you organic reach that would cost thousands in paid ads. Here's how to use it effectively.</p>
+
+                <h3>Content Plan</h3>
+                <div class="mp-card">
+                    <p class="mp-card-title">Phase 1: Tease (Week 1-2)</p>
+                    <p>Build curiosity before the hard sell.</p>
+                    <ul>
+                        <li><strong>Story 1:</strong> "Something exciting is coming to Toowong..." with a cropped detail shot (travertine stone, car lift, rooftop view)</li>
+                        <li><strong>Story 2:</strong> Behind-the-scenes of the building - show premium finishes being installed</li>
+                        <li><strong>Story 3:</strong> Sunset/dusk shot of the exterior with "Coming soon" text overlay</li>
+                        <li>Use the question sticker "Guess the suburb?" or "What would you want in your dream apartment?"</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Phase 2: Reveal (Week 3-4)</p>
+                    <p>Full reveal with direct link to the website.</p>
+                    <ul>
+                        <li><strong>Carousel post:</strong> 5-8 best photos (exterior, kitchen, living, rooftop, view). Caption with key details + "Link in bio"</li>
+                        <li><strong>Reels:</strong> 15-30 second walkthrough set to trending audio. Show the car lift, the rooftop, the kitchen (people love these)</li>
+                        <li><strong>Stories with swipe-up:</strong> Direct link to ehmbuild.com.au with UTM: <code>?utm_source=instagram&utm_medium=influencer&utm_campaign=sister_account</code></li>
+                        <li><strong>Story poll:</strong> "Would you live here? Yes / Take my money" (engagement bait that works)</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Phase 3: Open Home Push (Ongoing)</p>
+                    <p>Promote each open home 3-5 days before the event.</p>
+                    <ul>
+                        <li>Story countdown sticker to the open home date</li>
+                        <li>Re-share Reels with "This Saturday - come see it for yourself"</li>
+                        <li>Post-event recap stories showing the crowd/interest (social proof)</li>
+                    </ul>
+                </div>
+
+                <h3>Maximising the 500K Reach</h3>
+                <ul>
+                    <li><strong>Best posting times for Brisbane:</strong> Tuesday-Thursday, 7-8am or 7-9pm. Weekends between 10am-12pm.</li>
+                    <li><strong>Use location tags:</strong> Tag "Toowong", "Brisbane", "Holland Residences" on every post</li>
+                    <li><strong>Hashtags:</strong> #BrisbaneProperty #ToowongLiving #NewApartments #BrisbaneLuxury #QueenslandRealEstate #InnerCityLiving #BoutiqueApartments</li>
+                    <li><strong>Engage with comments:</strong> Reply to every comment and DM within 2 hours</li>
+                    <li><strong>Boost top posts:</strong> If a post gets strong organic engagement, put $20-50 behind it as a boosted post targeting Brisbane 30-65 year olds. This is the best ROI you'll get.</li>
+                </ul>
+
+                <div class="mp-note">
+                    <p><strong>Key advantage:</strong> A 500K account posting about Holland Residences gives you instant credibility and social proof. Even if only 2% of followers are in the Brisbane property market, that's 10,000 qualified eyeballs - for free. The paid ads then retarget anyone who engaged with the organic content.</p>
+                </div>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- OPEN HOME PLAN -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">11</p>
+                <h2>Open Home Plan</h2>
+                <p>Open homes are where deals happen. The marketing drives awareness and leads - the open home closes the sale. Here's how to sync them together.</p>
+
+                <h3>Suggested Schedule</h3>
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th>Timing</th>
+                            <th>Day</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Launch Open Home</strong></td>
+                            <td>Saturday 10am-12pm</td>
+                            <td>Big push. First 2 weeks of ads should build towards this date.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weekly Open Homes</strong></td>
+                            <td>Saturdays 10am-11:30am</td>
+                            <td>Consistent weekly slot so people know when to come.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Twilight Open Home</strong></td>
+                            <td>Wednesday 5pm-6:30pm (monthly)</td>
+                            <td>Catches the after-work crowd. The building looks stunning at dusk - use this.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Private Inspections</strong></td>
+                            <td>By appointment</td>
+                            <td>For serious buyers who've enquired online. Mention this in the form follow-up.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Marketing Sync (2-Week Campaign Cycle)</h3>
+                <div class="mp-card">
+                    <p class="mp-card-title">Week A: Build Up</p>
+                    <ul>
+                        <li><strong>Monday:</strong> Update Google Ads with "Open Home This Saturday" ad extensions</li>
+                        <li><strong>Tuesday:</strong> Instagram Story tease on sister's account (countdown sticker)</li>
+                        <li><strong>Wednesday:</strong> Meta ad goes live promoting the open home with date/time</li>
+                        <li><strong>Thursday:</strong> Email all existing leads from the Supabase database inviting them</li>
+                        <li><strong>Friday:</strong> Final Instagram Story reminder + Reel of the building</li>
+                        <li><strong>Saturday:</strong> Open Home day. Collect names/emails of attendees on an iPad</li>
+                    </ul>
+                </div>
+
+                <div class="mp-card">
+                    <p class="mp-card-title">Week B: Follow Up + Nurture</p>
+                    <ul>
+                        <li><strong>Monday:</strong> Follow up all open home attendees by phone/email within 48 hours</li>
+                        <li><strong>Tuesday:</strong> Post recap content on Instagram (photos from the open home, attendee quotes if permitted)</li>
+                        <li><strong>Wednesday:</strong> Review ad performance from the previous week</li>
+                        <li><strong>Thursday:</strong> Refresh ad creative if needed</li>
+                        <li><strong>Friday:</strong> Begin building up to next Saturday's open home</li>
+                    </ul>
+                </div>
+
+                <h3>On-the-Day Checklist</h3>
+                <ul>
+                    <li>Signage at street level (34 Holland St - Open for Inspection)</li>
+                    <li>Fresh flowers, lights on, blinds open, AC set to 23 degrees</li>
+                    <li>Printed brochures or floorplans at the entry</li>
+                    <li>iPad or sign-in sheet to capture visitor name, email, phone</li>
+                    <li>QR code linking to ehmbuild.com.au for people to browse later</li>
+                    <li>Suzy (or agent) available for questions throughout</li>
+                    <li>Take 2-3 photos/videos for Instagram content (with permission)</li>
+                </ul>
+
+                <div class="mp-note">
+                    <p><strong>Scarcity drives action:</strong> As units sell, update both the website and ad copy. "Only 7 remaining" is more compelling than "9 residences available". Every sale should trigger a copy refresh across all channels.</p>
+                </div>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- WHAT'S ALREADY SET UP -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">12</p>
+                <h2>What's Already Set Up on the Website</h2>
+                <p>The website has the following tracking already installed and working:</p>
+
+                <div class="mp-grid">
+                    <div class="mp-card">
+                        <p class="mp-card-title">Google Analytics (GA4)</p>
+                        <ul>
+                            <li>Page views tracked</li>
+                            <li><code>generate_lead</code> event fires on form submit</li>
+                            <li>UTM params captured automatically</li>
+                        </ul>
+                    </div>
+                    <div class="mp-card">
+                        <p class="mp-card-title">Meta Pixel</p>
+                        <ul>
+                            <li>PageView tracked on all pages</li>
+                            <li><code>Lead</code> event fires on form submit</li>
+                            <li>Enables retargeting audiences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>What Still Needs to Be Done</h3>
+                <ul>
+                    <li><strong>Google Ads conversion tracking:</strong> Link GA4 to Google Ads in the Google Ads dashboard so the <code>generate_lead</code> event appears as a conversion.</li>
+                    <li><strong>Meta custom conversions:</strong> In Meta Events Manager, set the <code>Lead</code> event as the primary conversion for your campaign optimisation.</li>
+                    <li><strong>Test the form:</strong> Submit a real test enquiry on ehmbuild.com.au and verify it arrives in the database before launching ads.</li>
+                </ul>
+            </div>
+
+            <hr class="mp-divider">
+
+            <!-- ============================================ -->
+            <!-- LAUNCH CHECKLIST -->
+            <!-- ============================================ -->
+            <div class="mp-section">
+                <p class="mp-section-num">13</p>
+                <h2>Launch Checklist</h2>
+
+                <h3>Pre-Launch (Do This Week)</h3>
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30px;">#</th>
+                            <th>Task</th>
+                            <th>Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Test contact form end-to-end (submit + confirm received in Supabase)</td>
+                            <td>You</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Create Google Ads account and link to GA4</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Import <code>generate_lead</code> as a conversion in Google Ads</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Set up Search campaigns (Brand + Location + Product)</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Add negative keywords list to all campaigns</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Create or access Meta Business Suite account</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Verify Meta Pixel is receiving events in Events Manager</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Set up 3-stage Meta funnel (Awareness / Consideration / Conversion)</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Set UTM params on ALL ad destination URLs</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Confirm first open home date and add to ad copy</td>
+                            <td>You + Suzy</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Brief sister on Instagram content plan (Phase 1 tease posts)</td>
+                            <td>You</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Launch Week</h3>
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30px;">#</th>
+                            <th>Task</th>
+                            <th>Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12</td>
+                            <td>Launch Google Ads campaigns</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>Launch Meta campaigns</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Sister posts first Instagram tease stories</td>
+                            <td>Sister</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Monitor ads daily for first 7 days (don't change anything for 48hrs)</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>Reply to all leads within 2 hours during business hours</td>
+                            <td>Suzy</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>Sister posts full reveal carousel + Reel (Phase 2)</td>
+                            <td>Sister</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>Hold first open home on Saturday</td>
+                            <td>You + Suzy</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Ongoing (Weekly)</h3>
+                <table class="mp-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30px;">#</th>
+                            <th>Task</th>
+                            <th>Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>19</td>
+                            <td>Monday: update tracking spreadsheet with last week's numbers</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>Monday: follow up all new leads from the weekend</td>
+                            <td>Suzy</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>Wednesday: post mid-week Instagram content</td>
+                            <td>Sister</td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>Friday: refresh ad creative if performance dropping</td>
+                            <td>Cousin</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>Saturday: open home + capture attendee details</td>
+                            <td>Suzy</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>Monthly: full strategy review - reallocate budget based on results</td>
+                            <td>All</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mp-footer">
+                <p>Holland Residences - Internal Marketing Plan - April 2026</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('open');
+            });
+        }
+    </script>
+
+</body>
+</html>
