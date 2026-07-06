@@ -516,6 +516,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ---- Film: click-to-load YouTube embed (no YouTube scripts until
+    //      the visitor actually presses play - keeps the page fast) ---- //
+    const filmFrame = document.getElementById('filmFrame');
+    if (filmFrame) {
+        filmFrame.addEventListener('click', () => {
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + filmFrame.dataset.videoId + '?autoplay=1&rel=0&playsinline=1';
+            iframe.title = 'Holland Residences walkthrough video';
+            iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+            iframe.allowFullscreen = true;
+            filmFrame.innerHTML = '';
+            filmFrame.appendChild(iframe);
+            if (typeof gtag === 'function') {
+                gtag('event', 'video_play', { event_category: 'Engagement', event_label: 'Walkthrough Film' });
+            }
+            if (typeof fbq === 'function') fbq('trackCustom', 'VideoPlay');
+        }, { once: true });
+    }
+
     // ---- Buyer Pack (request-only: no self-serve download, Suzy sends
     //      it personally so every pack request becomes a conversation) ---- //
     const packModal = document.getElementById('packModal');
