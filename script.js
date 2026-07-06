@@ -18,6 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
         supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     }
 
+    // ---- Lead-source attribution (?ref=harrison / ?ref=suzy etc.) ---- //
+    // First touch wins: the first ref a visitor ever arrives with is
+    // remembered and attached to every enquiry they submit afterwards.
+    // Requires the lead_ref column on the enquiries table (see README).
+    try {
+        const refParam = new URLSearchParams(window.location.search).get('ref');
+        if (refParam && !localStorage.getItem('lead_ref')) {
+            localStorage.setItem('lead_ref', refParam.toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40));
+        }
+    } catch (e) { /* private browsing: attribution degrades gracefully */ }
+
+    function getLeadRef() {
+        try { return localStorage.getItem('lead_ref') || ''; } catch (e) { return ''; }
+    }
+
     // ---- UTM Parameter Capture ---- //
     function getUTMParams() {
         const params = new URLSearchParams(window.location.search);
@@ -289,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
             interest: document.getElementById('interest').value,
             message: document.getElementById('message').value.trim(),
             ...getUTMParams(),
+            ...(getLeadRef() ? { lead_ref: getLeadRef() } : {}),
             page_url: window.location.href,
             submitted_at: new Date().toISOString()
         };
@@ -583,6 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 interest: 'Buyer Pack',
                 message: 'Requested the buyer pack.',
                 ...getUTMParams(),
+                ...(getLeadRef() ? { lead_ref: getLeadRef() } : {}),
                 page_url: window.location.href,
                 submitted_at: new Date().toISOString()
             };
