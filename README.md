@@ -52,6 +52,25 @@ CREATE POLICY "Allow anonymous inserts" ON enquiries
 3. Go to Settings → API and copy your **Project URL** and **anon key**
 4. Paste them into `script.js` (lines 14-15)
 
+### 1a. Lead-source attribution (required before merging direct-sales-mode)
+
+Run this once in the Supabase SQL Editor:
+
+```sql
+ALTER TABLE enquiries ADD COLUMN IF NOT EXISTS lead_ref TEXT;
+```
+
+Each team member shares their own link — the first `ref` a visitor arrives
+with is remembered in their browser and attached to every enquiry they
+submit later (first touch wins):
+
+- `https://ehmbuild.com.au/?ref=harrison`
+- `https://ehmbuild.com.au/?ref=suzy`
+
+Works combined with campaign UTMs, e.g. `/?ref=harrison&utm_source=instagram`.
+Phone enquiries have no automatic attribution — ask the caller how they
+heard about the property and record it in the lead register.
+
 ### 2. Hosting (GitHub Pages)
 
 This site is deployed via GitHub Pages. Push to `main` and enable Pages in repo settings.
