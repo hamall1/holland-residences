@@ -33,6 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
         try { return localStorage.getItem('lead_ref') || ''; } catch (e) { return ''; }
     }
 
+    // Insert an enquiry; if the lead_ref column doesn't exist yet in the
+    // database, retry without it - a lead must never be lost to tracking.
+    async function insertEnquiry(payload) {
+        let { error } = await supabase.from('enquiries').insert([payload]);
+        if (error && payload.lead_ref) {
+            const retry = Object.assign({}, payload);
+            delete retry.lead_ref;
+            ({ error } = await supabase.from('enquiries').insert([retry]));
+        }
+        if (error) throw error;
+    }
+
     // ---- UTM Parameter Capture ---- //
     function getUTMParams() {
         const params = new URLSearchParams(window.location.search);
@@ -330,11 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             if (supabase) {
                 // ---- Live Supabase Submission ---- //
-                const { error } = await supabase
-                    .from('enquiries')
-                    .insert([formData]);
-
-                if (error) throw error;
+                await insertEnquiry(formData);
 
                 showStatus('✓ Enquiry submitted successfully. We\'ll be in touch shortly.', 'success');
                 submitBtn.textContent = '✓ Sent';
@@ -618,8 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 if (supabase) {
-                    const { error } = await supabase.from('enquiries').insert([leadData]);
-                    if (error) throw error;
+                    await insertEnquiry(leadData);
                 }
 
                 if (typeof gtag === 'function') {
