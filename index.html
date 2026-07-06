@@ -100,9 +100,9 @@
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+61-435-433-675",
+        "telephone": "+61-406-707-366",
         "contactType": "sales",
-        "name": "Suzy Nicholls"
+        "name": "Harrison"
       }
     }
     </script>
@@ -190,7 +190,7 @@
             <div class="section-header reveal">
                 <p class="section-label">The Residences</p>
                 <h2>Nine homes,<br>each one distinct</h2>
-                <p class="section-sub">Every residence has been designed to maximise light, outlook, and a sense of sanctuary. From private courtyards to penthouse panoramas - discover each home.</p>
+                <p class="section-sub">Nine homes across five levels - private ground-floor courtyards, quiet rear residences with the largest floorplans, and front homes looking over the treetops. Discover which one fits.</p>
                 <p class="availability-line" id="availabilityLine" aria-live="polite"></p>
             </div>
 
@@ -198,10 +198,12 @@
                  UNIT CONTROL PANEL
                  Each card below is the single source of truth for its unit:
                    data-status="available" | "under-offer" | "sold"  (on .unit-card)
-                   .unit-price text = the published price guide
-                 The status chips, availability counter, hero "From $X" price
-                 and the enquiry form options all derive from these values
-                 automatically - edit them here and nowhere else.
+                   .unit-price text = "Price on application" (put a dollar
+                   figure here if prices are ever published again)
+                 The status chips, availability counter and the enquiry form
+                 options all derive from these values automatically - edit
+                 them here and nowhere else. The hero "From $X" only updates
+                 automatically while dollar figures are shown on the cards.
                  ============================================================== -->
             <div class="units-grid">
                 <!-- Unit 101 -->
@@ -211,7 +213,7 @@
                         <span class="unit-level">Ground Floor</span>
                     </div>
                     <h3>Ground Courtyard</h3>
-                    <div class="unit-price">Price guide $2,275,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -240,7 +242,7 @@
                         <span class="unit-level">Ground Floor</span>
                     </div>
                     <h3>Ground Courtyard</h3>
-                    <div class="unit-price">Price guide $2,300,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -269,7 +271,7 @@
                         <span class="unit-level">Level 2</span>
                     </div>
                     <h3>Front · Trees Outlook</h3>
-                    <div class="unit-price">Price guide $1,700,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -298,7 +300,7 @@
                         <span class="unit-level">Level 2</span>
                     </div>
                     <h3>Rear Residence</h3>
-                    <div class="unit-price">Price guide $1,690,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -327,7 +329,7 @@
                         <span class="unit-level">Level 3</span>
                     </div>
                     <h3>Front · Clear Over Trees</h3>
-                    <div class="unit-price">Price guide $1,775,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -356,7 +358,7 @@
                         <span class="unit-level">Level 3</span>
                     </div>
                     <h3>Rear Residence</h3>
-                    <div class="unit-price">Price guide $1,725,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -368,7 +370,7 @@
                         <span class="area-divider">·</span>
                         <span>144.6m² Total</span>
                     </div>
-                    <p class="unit-desc">Rear-facing Level 3 residence with 126m² internal. Elevated enough for excellent natural light and ventilation while retaining a quiet, private aspect.</p>
+                    <p class="unit-desc">Rear-facing Level 3 residence with 126m² internal - generous proportions in a quiet, private position removed from the street.</p>
                     <div class="unit-features">
                         <span>126m² Internal</span>
                         <span>Rear Quiet</span>
@@ -385,7 +387,7 @@
                         <span class="unit-level">Level 4</span>
                     </div>
                     <h3>Front · Best Outlook</h3>
-                    <div class="unit-price">Price guide $1,850,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -414,7 +416,7 @@
                         <span class="unit-level">Level 4</span>
                     </div>
                     <h3>Rear Residence</h3>
-                    <div class="unit-price">Price guide $1,800,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -426,7 +428,7 @@
                         <span class="area-divider">·</span>
                         <span>144.6m² Total</span>
                     </div>
-                    <p class="unit-desc">Level 4 rear residence - the highest of the rear-facing apartments. 126m² of generous living with elevated breezes, natural light, and a sense of separation from the street.</p>
+                    <p class="unit-desc">Level 4 rear residence - the highest of the rear-facing apartments. 126m² of generous living with a real sense of separation from the street.</p>
                     <div class="unit-features">
                         <span>Highest Rear</span>
                         <span>126m² Internal</span>
@@ -443,7 +445,7 @@
                         <span class="unit-level">Level 5 · Penthouse</span>
                     </div>
                     <h3>The Penthouse</h3>
-                    <div class="unit-price">Price guide $2,500,000</div>
+                    <div class="unit-price">Price on application</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bed + 4th / Entertainment</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -470,7 +472,7 @@
             <div class="buyer-pack-band reveal">
                 <div class="buyer-pack-text">
                     <h3>The full Buyer Pack</h3>
-                    <p>Complete floorplans, the current price list and finishes schedule - request it and Suzy will send it to you personally.</p>
+                    <p>Complete floorplans, the current price list and finishes schedule - request it and Harrison will send it to you personally.</p>
                 </div>
                 <button type="button" class="buyer-pack-btn" data-cta="buyer-pack">Request the Buyer Pack</button>
             </div>
@@ -814,15 +816,15 @@
                 <div class="contact-text reveal">
                     <p class="section-label">Get In Touch</p>
                     <h2>Register your interest</h2>
-                    <p class="contact-body">You'll be dealing directly with the team that built Holland Residences - no agents in between, straight answers on price and settlement. Call Suzy, book a private inspection, or send an enquiry and we'll come back to you the same day.</p>
+                    <p class="contact-body">You'll be dealing directly with the team that built Holland Residences - no agents in between, straight answers on price and settlement. Call Harrison, book a private inspection, or send an enquiry and we'll come back to you the same day.</p>
                     <div class="contact-info">
                         <div class="contact-info-item">
                             <strong>Sales Enquiries</strong>
-                            <a href="tel:+61435433675">Suzy Nicholls</a>
+                            <a href="tel:+61406707366">Harrison</a>
                         </div>
                         <div class="contact-info-item">
                             <strong>Phone</strong>
-                            <a href="tel:+61435433675">0435 433 675</a>
+                            <a href="tel:+61406707366">0406 707 366</a>
                         </div>
                     </div>
                 </div>
@@ -903,7 +905,7 @@
 
     <!-- Sticky mobile action bar -->
     <div class="mobile-action-bar">
-        <a href="tel:+61435433675" class="mab-btn mab-call">Call Suzy</a>
+        <a href="tel:+61406707366" class="mab-btn mab-call">Call Harrison</a>
         <a href="#contact" class="mab-btn mab-book" data-cta="inspection">Book Inspection</a>
     </div>
 
@@ -914,7 +916,7 @@
             <button class="pack-modal-close" id="packModalClose" aria-label="Close">&times;</button>
             <p class="section-label">Buyer Pack</p>
             <h3 id="packModalTitle">Floorplans, price list &amp; finishes</h3>
-            <p class="pack-modal-sub">Tell us where to send it - Suzy will share the full pack with you personally.</p>
+            <p class="pack-modal-sub">Tell us where to send it - Harrison will share the full pack with you personally.</p>
             <form id="packForm" class="pack-form">
                 <div class="form-row">
                     <div class="form-group">

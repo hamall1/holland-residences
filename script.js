@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (err) {
             console.error('Submission error:', err);
-            showStatus('Something went wrong. Please call Suzy directly on 0435 433 675.', 'error');
+            showStatus('Something went wrong. Please call Harrison directly on 0406 707 366.', 'error');
             submitBtn.textContent = originalText;
             submitBtn.style.opacity = '1';
             submitBtn.disabled = false;
@@ -535,7 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { once: true });
     }
 
-    // ---- Buyer Pack (request-only: no self-serve download, Suzy sends
+    // ---- Buyer Pack (request-only: no self-serve download, Harrison sends
     //      it personally so every pack request becomes a conversation) ---- //
     const packModal = document.getElementById('packModal');
     const packForm = document.getElementById('packForm');
@@ -604,13 +604,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     fbq('track', 'Lead', { content_name: 'Holland Residences Buyer Pack' });
                 }
 
-                packStatus.textContent = '✓ Request received. Suzy will send the full buyer pack to you personally, usually within the hour.';
+                packStatus.textContent = '✓ Request received. Harrison will send the full buyer pack to you personally, usually within the hour.';
                 packStatus.className = 'form-status success';
                 packStatus.style.display = 'block';
                 packSubmit.textContent = '✓ Requested';
             } catch (err) {
                 console.error('Buyer pack lead error:', err);
-                packStatus.textContent = 'Something went wrong - call or text Suzy on 0435 433 675 and she\'ll send the pack straight over.';
+                packStatus.textContent = 'Something went wrong - call or text Harrison on 0406 707 366 and he\'ll send the pack straight over.';
                 packStatus.className = 'form-status error';
                 packStatus.style.display = 'block';
                 packSubmit.textContent = 'Request the Buyer Pack';
