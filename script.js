@@ -461,6 +461,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (status === 'sold') {
             if (enquireBtn) { enquireBtn.textContent = 'Sold'; enquireBtn.disabled = true; }
             if (option) { option.disabled = true; option.textContent += ' · Sold'; }
+            // Hide the guide on sold units so past asking prices don't
+            // anchor negotiations on the remaining stock
+            const soldPriceEl = card.querySelector('.unit-price');
+            if (soldPriceEl) soldPriceEl.textContent = 'Sold';
         } else if (status === 'under-offer') {
             if (enquireBtn) enquireBtn.textContent = 'Under Offer - Register as Backup';
             if (option) option.textContent += ' · Under Offer';
