@@ -1,0 +1,29 @@
+# Pings the live site and the Supabase enquiry backend every 15 minutes.
+# If either is down, the workflow fails and GitHub emails the repo owner.
+# The ping itself also counts as API activity, which stops Supabase's
+# free tier from pausing the project during quiet weeks.
+name: Health check - site and enquiry backend
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Website responds
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 https://ehmbuild.com.au/)
+          echo "ehmbuild.com.au -> HTTP $code"
+          test "$code" = "200"
+
+      - name: Supabase enquiry backend responds
+        # The apikey below is the public anon key already shipped in the
+        # site's JavaScript - it grants insert-only access, nothing more.
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 \
+            "https://emiuttcchwrmaldgtodq.supabase.co/rest/v1/?apikey=sb_publishable_Ea3JHaEQKaSpIa1bnRUv3Q_SiZ6yZc3")
+          echo "supabase rest -> HTTP $code"
+          test "$code" = "200"
