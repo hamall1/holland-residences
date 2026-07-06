@@ -1447,3 +1447,291 @@ h2 {
         gap: 12px;
     }
 }
+
+/* =============================================
+   Direct Sales Mode
+   ============================================= */
+
+/* Hero status line */
+.hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+}
+
+.hero-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #A8C39A;
+    box-shadow: 0 0 0 3px rgba(168, 195, 154, 0.25);
+    flex-shrink: 0;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-btn--solid {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+.hero-btn--solid:hover {
+    background: var(--accent-light);
+    color: var(--bg-primary);
+}
+
+/* Availability line under the Residences header */
+.availability-line {
+    margin-top: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.availability-line:empty {
+    display: none;
+}
+
+/* Unit status chips (rendered by script.js from data-status) */
+.unit-status {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.unit-status--available {
+    color: #C6DCB8;
+    background: rgba(168, 195, 154, 0.14);
+    border: 1px solid rgba(168, 195, 154, 0.4);
+}
+
+.unit-status--under-offer {
+    color: #E8CE9A;
+    background: rgba(217, 179, 106, 0.14);
+    border: 1px solid rgba(217, 179, 106, 0.4);
+}
+
+.unit-status--sold {
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-light);
+}
+
+.unit-card[data-status="sold"] {
+    opacity: 0.6;
+}
+
+.unit-card[data-status="sold"]:hover {
+    transform: none;
+    border-color: var(--border);
+    box-shadow: none;
+}
+
+.unit-btn:disabled {
+    cursor: default;
+    border-color: var(--border-light);
+    color: var(--text-muted);
+}
+
+.unit-btn:disabled:hover {
+    background: transparent;
+    border-color: var(--border-light);
+    color: var(--text-muted);
+}
+
+/* Buyer pack band */
+.buyer-pack-band {
+    margin-top: 56px;
+    padding: 36px 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.buyer-pack-text h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.buyer-pack-text p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 52ch;
+}
+
+.buyer-pack-btn {
+    padding: 16px 36px;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.buyer-pack-btn:hover {
+    background: var(--accent-light);
+    transform: translateY(-2px);
+}
+
+/* Buyer pack modal */
+.pack-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease);
+}
+
+.pack-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pack-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 18, 16, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+.pack-modal-content {
+    position: relative;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 40px;
+    width: calc(100% - 40px);
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(12px);
+    transition: transform 0.3s var(--ease);
+}
+
+.pack-modal.active .pack-modal-content {
+    transform: translateY(0);
+}
+
+.pack-modal-content h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.7rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.pack-modal-sub {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.pack-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-muted);
+    padding: 8px;
+    transition: color 0.3s var(--ease);
+}
+
+.pack-modal-close:hover {
+    color: var(--text-primary);
+}
+
+.pack-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.pack-form .form-submit {
+    align-self: stretch;
+    text-align: center;
+}
+
+/* Sticky mobile action bar */
+.mobile-action-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-action-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 900;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid var(--border-light);
+        padding-bottom: env(safe-area-inset-bottom);
+        background: var(--bg-secondary);
+    }
+
+    .mab-btn {
+        padding: 17px 10px;
+        text-align: center;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .mab-call {
+        color: var(--text-primary);
+        background: var(--bg-secondary);
+    }
+
+    .mab-book {
+        color: var(--bg-primary);
+        background: var(--accent);
+    }
+
+    .footer {
+        padding-bottom: 96px;
+    }
+
+    .buyer-pack-band {
+        padding: 28px 24px;
+    }
+
+    .buyer-pack-btn {
+        width: 100%;
+    }
+}

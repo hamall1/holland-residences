@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holland Residences by EHM Build - Premium 3 Bed Apartments | 34 Holland St, Toowong</title>
-    <meta name="description" content="Nine boutique 3 bed, 2 bath, 2 car residences at 34 Holland St, Toowong by EHM Build (HEM Developments). From $1.69M. A new benchmark for boutique living in Brisbane's inner-west. Register your interest today.">
+    <title>Holland Residences by EHM Build - Premium 3 Bed Apartments, Ready to Move In | 34 Holland St, Toowong</title>
+    <meta name="description" content="Nine boutique 3 bed, 2 bath, 2 car residences at 34 Holland St, Toowong by EHM Build (HEM Developments). Completed and ready to move in - buy direct from the developer. From $1.69M. Register your interest today.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="HEM Developments">
     <meta name="theme-color" content="#1a1917">
@@ -21,7 +21,7 @@
     <!-- Open Graph (Facebook / LinkedIn) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Holland Residences - Premium 3 Bed Apartments | Toowong">
-    <meta property="og:description" content="Nine boutique residences in Brisbane's inner-west. 3 bed, 2 bath, 2 car from $1.69M. Register your interest today.">
+    <meta property="og:description" content="Nine boutique residences in Brisbane's inner-west. Completed and ready to move in - buy direct from the developer. 3 bed, 2 bath, 2 car from $1.69M.">
     <meta property="og:image" content="https://ehmbuild.com.au/images/5D3_0823-Edit.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -32,7 +32,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Holland Residences - 34 Holland St, Toowong">
-    <meta name="twitter:description" content="Nine boutique residences in Brisbane's inner-west. From $1.69M. Register your interest.">
+    <meta name="twitter:description" content="Nine boutique residences in Brisbane's inner-west. Completed and ready to move in. From $1.69M. Buy direct from the developer.">
     <meta name="twitter:image" content="https://ehmbuild.com.au/images/5D3_0823-Edit.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +50,7 @@
       "@context": "https://schema.org",
       "@type": "ApartmentComplex",
       "name": "Holland Residences",
-      "description": "Nine boutique 3 bedroom, 2 bathroom, 2 car residences at 34 Holland St, Toowong. A new benchmark for boutique living in Brisbane's inner-west.",
+      "description": "Nine boutique 3 bedroom, 2 bathroom, 2 car residences at 34 Holland St, Toowong. Completed and ready to move in - sold direct by the developer.",
       "url": "https://ehmbuild.com.au/",
       "image": "https://ehmbuild.com.au/images/5D3_0823-Edit.jpg",
       "address": {
@@ -146,6 +146,7 @@
             <p class="hero-pre animate-in">Holland Residences</p>
             <h1 class="hero-title animate-in delay-1">34 Holland St<br><span>Toowong</span></h1>
             <p class="hero-tagline animate-in delay-2">Nine boutique residences, considered in every detail</p>
+            <p class="hero-status animate-in delay-2"><span class="hero-status-dot"></span>Completed April 2026 · Ready to move in · Buy direct from the developer</p>
             <div class="hero-specs animate-in delay-3">
                 <span>3 Bed</span>
                 <span class="spec-dot"></span>
@@ -153,9 +154,12 @@
                 <span class="spec-dot"></span>
                 <span>2 Car</span>
                 <span class="spec-dot"></span>
-                <span>From $1.69M</span>
+                <span id="heroFromPrice">From $1.69M</span>
             </div>
-            <a href="#residences" class="hero-btn animate-in delay-4">Explore Residences</a>
+            <div class="hero-ctas animate-in delay-4">
+                <a href="#contact" class="hero-btn hero-btn--solid" data-cta="inspection">Book a Private Inspection</a>
+                <a href="#residences" class="hero-btn">Explore Residences</a>
+            </div>
         </div>
         <div class="hero-scroll animate-in delay-4">
             <div class="scroll-line"></div>
@@ -187,17 +191,27 @@
                 <p class="section-label">The Residences</p>
                 <h2>Nine homes,<br>each one distinct</h2>
                 <p class="section-sub">Every residence has been designed to maximise light, outlook, and a sense of sanctuary. From private courtyards to penthouse panoramas - discover each home.</p>
+                <p class="availability-line" id="availabilityLine" aria-live="polite"></p>
             </div>
 
+            <!-- ==============================================================
+                 UNIT CONTROL PANEL
+                 Each card below is the single source of truth for its unit:
+                   data-status="available" | "under-offer" | "sold"  (on .unit-card)
+                   .unit-price text = the published price guide
+                 The status chips, availability counter, hero "From $X" price
+                 and the enquiry form options all derive from these values
+                 automatically - edit them here and nowhere else.
+                 ============================================================== -->
             <div class="units-grid">
                 <!-- Unit 101 -->
-                <div class="unit-card reveal" data-unit="1">
+                <div class="unit-card reveal" data-unit="1" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">1</span>
                         <span class="unit-level">Ground Floor</span>
                     </div>
                     <h3>Ground Courtyard</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $2,275,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -220,13 +234,13 @@
                 </div>
 
                 <!-- Unit 102 -->
-                <div class="unit-card reveal delay-1" data-unit="2">
+                <div class="unit-card reveal delay-1" data-unit="2" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">2</span>
                         <span class="unit-level">Ground Floor</span>
                     </div>
                     <h3>Ground Courtyard</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $2,300,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -249,13 +263,13 @@
                 </div>
 
                 <!-- Unit 201 -->
-                <div class="unit-card reveal delay-2" data-unit="3">
+                <div class="unit-card reveal delay-2" data-unit="3" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">3</span>
                         <span class="unit-level">Level 2</span>
                     </div>
                     <h3>Front · Trees Outlook</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $1,700,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -278,13 +292,13 @@
                 </div>
 
                 <!-- Unit 202 -->
-                <div class="unit-card reveal" data-unit="4">
+                <div class="unit-card reveal" data-unit="4" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">4</span>
                         <span class="unit-level">Level 2</span>
                     </div>
                     <h3>Rear Residence</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $1,690,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -307,13 +321,13 @@
                 </div>
 
                 <!-- Unit 301 -->
-                <div class="unit-card reveal delay-1" data-unit="5">
+                <div class="unit-card reveal delay-1" data-unit="5" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">5</span>
                         <span class="unit-level">Level 3</span>
                     </div>
                     <h3>Front · Clear Over Trees</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $1,775,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -336,13 +350,13 @@
                 </div>
 
                 <!-- Unit 302 -->
-                <div class="unit-card reveal delay-2" data-unit="6">
+                <div class="unit-card reveal delay-2" data-unit="6" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">6</span>
                         <span class="unit-level">Level 3</span>
                     </div>
                     <h3>Rear Residence</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $1,725,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -365,13 +379,13 @@
                 </div>
 
                 <!-- Unit 401 -->
-                <div class="unit-card reveal" data-unit="7">
+                <div class="unit-card reveal" data-unit="7" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">7</span>
                         <span class="unit-level">Level 4</span>
                     </div>
                     <h3>Front · Best Outlook</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $1,850,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -394,13 +408,13 @@
                 </div>
 
                 <!-- Unit 402 -->
-                <div class="unit-card reveal delay-1" data-unit="8">
+                <div class="unit-card reveal delay-1" data-unit="8" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">8</span>
                         <span class="unit-level">Level 4</span>
                     </div>
                     <h3>Rear Residence</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $1,800,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bedrooms</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -423,13 +437,13 @@
                 </div>
 
                 <!-- Unit 501 - Penthouse -->
-                <div class="unit-card unit-card--featured reveal delay-2" data-unit="9">
+                <div class="unit-card unit-card--featured reveal delay-2" data-unit="9" data-status="available">
                     <div class="unit-card-header">
                         <span class="unit-number">9</span>
                         <span class="unit-level">Level 5 · Penthouse</span>
                     </div>
                     <h3>The Penthouse</h3>
-                    <div class="unit-price">Contact Agent</div>
+                    <div class="unit-price">Price guide $2,500,000</div>
                     <div class="unit-specs">
                         <div class="unit-spec"><span class="spec-icon">⊞</span><span>3 Bed + 4th / Entertainment</span></div>
                         <div class="unit-spec"><span class="spec-icon">◈</span><span>2 Bathrooms</span></div>
@@ -451,6 +465,14 @@
                     <button class="unit-floorplan-btn" data-floorplan="images/floorplans/floorplan-page-9.jpg" data-unit-label="Unit 9 - Penthouse">View Floor Plan</button>
                     <button class="unit-btn" data-unit="9">Enquire About This Residence</button>
                 </div>
+            </div>
+
+            <div class="buyer-pack-band reveal">
+                <div class="buyer-pack-text">
+                    <h3>Get the full Buyer Pack</h3>
+                    <p>Complete floorplans, the current price list and finishes schedule - yours to download instantly.</p>
+                </div>
+                <button type="button" class="buyer-pack-btn" data-cta="buyer-pack">Download the Buyer Pack</button>
             </div>
         </div>
     </section>
@@ -774,7 +796,7 @@
                 <div class="contact-text reveal">
                     <p class="section-label">Get In Touch</p>
                     <h2>Register your interest</h2>
-                    <p class="contact-body">Interested in securing one of just nine residences at Holland Residences? Get in touch with Suzy directly, or complete the form and we'll be in contact.</p>
+                    <p class="contact-body">You'll be dealing directly with the team that built Holland Residences - no agents in between, straight answers on price and settlement. Call Suzy, book a private inspection, or send an enquiry and we'll come back to you the same day.</p>
                     <div class="contact-info">
                         <div class="contact-info-item">
                             <strong>Sales Enquiries</strong>
@@ -803,7 +825,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" required>
                     </div>
                     <div class="form-group">
                         <label for="interest">Which residence interests you?</label>
@@ -854,12 +876,57 @@
                 </div>
                 <div class="footer-legal">
                     <p>&copy; 2026 Holland Residences. A project by <strong>EHM Build</strong> (HEM Developments).</p>
-                    <p>Images are indicative only.</p>
+                    <p>Photography of the completed building, April 2026. Sold direct by the developer.</p>
                 </div>
             </div>
         </div>
     </footer>
     </main>
+
+    <!-- Sticky mobile action bar -->
+    <div class="mobile-action-bar">
+        <a href="tel:+61435433675" class="mab-btn mab-call">Call Suzy</a>
+        <a href="#contact" class="mab-btn mab-book" data-cta="inspection">Book Inspection</a>
+    </div>
+
+    <!-- Buyer Pack Modal -->
+    <div class="pack-modal" id="packModal" role="dialog" aria-modal="true" aria-labelledby="packModalTitle">
+        <div class="pack-modal-overlay" id="packModalOverlay"></div>
+        <div class="pack-modal-content">
+            <button class="pack-modal-close" id="packModalClose" aria-label="Close">&times;</button>
+            <p class="section-label">Buyer Pack</p>
+            <h3 id="packModalTitle">Floorplans, price list &amp; finishes</h3>
+            <p class="pack-modal-sub">Tell us where to send it and your download starts straight away.</p>
+            <form id="packForm" class="pack-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="packFirstName">First Name</label>
+                        <input type="text" id="packFirstName" autocomplete="given-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="packLastName">Last Name</label>
+                        <input type="text" id="packLastName" autocomplete="family-name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="packEmail">Email</label>
+                    <input type="email" id="packEmail" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="packPhone">Phone</label>
+                    <input type="tel" id="packPhone" autocomplete="tel" required>
+                </div>
+                <!-- Honeypot - invisible to humans, catches bots -->
+                <div class="form-hp" aria-hidden="true">
+                    <label for="packWebsite">Website</label>
+                    <input type="text" id="packWebsite" tabindex="-1" autocomplete="off">
+                </div>
+                <button type="submit" class="form-submit" id="packSubmit">Get the Buyer Pack</button>
+                <div class="form-status" id="packStatus"></div>
+                <p class="form-privacy">Your details are stored securely and only used to respond to your enquiry.</p>
+            </form>
+        </div>
+    </div>
 
     <!-- Floor Plan Modal -->
     <div class="floorplan-modal" id="floorplanModal">
