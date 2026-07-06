@@ -516,8 +516,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ---- Buyer Pack (gated download) ---- //
-    const BUYER_PACK_URL = 'downloads/holland-residences-buyer-pack.pdf';
+    // ---- Buyer Pack (request-only: no self-serve download, Suzy sends
+    //      it personally so every pack request becomes a conversation) ---- //
     const packModal = document.getElementById('packModal');
     const packForm = document.getElementById('packForm');
     const packStatus = document.getElementById('packStatus');
@@ -532,15 +532,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function closePackModal() {
         packModal.classList.remove('active');
         document.body.style.overflow = '';
-    }
-
-    function startPackDownload() {
-        const link = document.createElement('a');
-        link.href = BUYER_PACK_URL;
-        link.download = 'Holland-Residences-Buyer-Pack.pdf';
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
     }
 
     if (packModal) {
@@ -559,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Honeypot check
             const honeypot = document.getElementById('packWebsite');
             if (honeypot && honeypot.value) {
-                packStatus.textContent = '✓ Your download is starting.';
+                packStatus.textContent = '✓ Request received. We\'ll be in touch shortly.';
                 packStatus.className = 'form-status success';
                 packStatus.style.display = 'block';
                 return;
@@ -571,13 +562,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 email: document.getElementById('packEmail').value.trim(),
                 phone: document.getElementById('packPhone').value.trim(),
                 interest: 'Buyer Pack',
-                message: 'Requested the buyer pack download.',
+                message: 'Requested the buyer pack.',
                 ...getUTMParams(),
                 page_url: window.location.href,
                 submitted_at: new Date().toISOString()
             };
 
-            packSubmit.textContent = 'Preparing...';
+            packSubmit.textContent = 'Sending...';
             packSubmit.disabled = true;
 
             try {
@@ -585,33 +576,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     const { error } = await supabase.from('enquiries').insert([leadData]);
                     if (error) throw error;
                 }
+
+                if (typeof gtag === 'function') {
+                    gtag('event', 'buyer_pack_request', { event_category: 'Contact', value: 1 });
+                    gtag('event', 'generate_lead', { event_category: 'Contact', event_label: 'Buyer Pack', value: 1 });
+                }
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', { content_name: 'Holland Residences Buyer Pack' });
+                }
+
+                packStatus.textContent = '✓ Request received. Suzy will send the full buyer pack to you personally, usually within the hour.';
+                packStatus.className = 'form-status success';
+                packStatus.style.display = 'block';
+                packSubmit.textContent = '✓ Requested';
             } catch (err) {
-                // Never block the buyer on a storage error - the lead
-                // matters less than the person requesting it.
                 console.error('Buyer pack lead error:', err);
+                packStatus.textContent = 'Something went wrong - call or text Suzy on 0435 433 675 and she\'ll send the pack straight over.';
+                packStatus.className = 'form-status error';
+                packStatus.style.display = 'block';
+                packSubmit.textContent = 'Request the Buyer Pack';
+                packSubmit.disabled = false;
+                return;
             }
-
-            if (typeof gtag === 'function') {
-                gtag('event', 'buyer_pack_download', { event_category: 'Contact', value: 1 });
-                gtag('event', 'generate_lead', { event_category: 'Contact', event_label: 'Buyer Pack', value: 1 });
-            }
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead', { content_name: 'Holland Residences Buyer Pack' });
-            }
-
-            startPackDownload();
-            packStatus.textContent = '✓ Your download has started. Suzy will follow up with the full price list.';
-            packStatus.className = 'form-status success';
-            packStatus.style.display = 'block';
-            packSubmit.textContent = '✓ Downloaded';
 
             setTimeout(() => {
                 closePackModal();
                 packForm.reset();
-                packSubmit.textContent = 'Get the Buyer Pack';
+                packSubmit.textContent = 'Request the Buyer Pack';
                 packSubmit.disabled = false;
                 packStatus.style.display = 'none';
-            }, 3500);
+            }, 4500);
         });
     }
 
