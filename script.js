@@ -462,13 +462,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const status = STATUS_LABELS[card.dataset.status] ? card.dataset.status : 'available';
         const unitNum = card.dataset.unit;
 
-        // Status chip in the card header
-        const header = card.querySelector('.unit-card-header');
-        if (header) {
-            const chip = document.createElement('span');
-            chip.className = 'unit-status unit-status--' + status;
-            chip.textContent = STATUS_LABELS[status];
-            header.appendChild(chip);
+        // Sold cards get a full-strength corner ribbon; everything else
+        // gets a status chip in the card header
+        if (status === 'sold') {
+            const ribbon = document.createElement('div');
+            ribbon.className = 'sold-ribbon';
+            ribbon.textContent = 'Sold';
+            ribbon.setAttribute('aria-hidden', 'true');
+            card.appendChild(ribbon);
+        } else {
+            const header = card.querySelector('.unit-card-header');
+            if (header) {
+                const chip = document.createElement('span');
+                chip.className = 'unit-status unit-status--' + status;
+                chip.textContent = STATUS_LABELS[status];
+                header.appendChild(chip);
+            }
         }
 
         // Enquire button + form option reflect the status

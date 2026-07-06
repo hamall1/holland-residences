@@ -1535,13 +1535,43 @@ h2 {
 }
 
 .unit-card[data-status="sold"] {
-    opacity: 0.6;
+    position: relative;
+    overflow: hidden;
 }
 
 .unit-card[data-status="sold"]:hover {
     transform: none;
     border-color: var(--border);
     box-shadow: none;
+}
+
+/* Sold content recedes; the sold markers stay at full strength */
+.unit-card[data-status="sold"] .unit-specs,
+.unit-card[data-status="sold"] .unit-areas,
+.unit-card[data-status="sold"] .unit-desc,
+.unit-card[data-status="sold"] .unit-features,
+.unit-card[data-status="sold"] .unit-floorplan-btn,
+.unit-card[data-status="sold"] .unit-btn {
+    opacity: 0.45;
+}
+
+.sold-ribbon {
+    position: absolute;
+    top: 18px;
+    right: -54px;
+    transform: rotate(45deg);
+    width: 190px;
+    text-align: center;
+    padding: 8px 0;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    pointer-events: none;
 }
 
 .unit-btn:disabled {
