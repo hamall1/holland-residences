@@ -308,13 +308,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Gather form data
+        const inspectionBox = document.getElementById('bookInspection');
+        const wantsInspection = !!(inspectionBox && inspectionBox.checked);
         const formData = {
             first_name: document.getElementById('firstName').value.trim(),
             last_name: document.getElementById('lastName').value.trim(),
             email: document.getElementById('email').value.trim(),
             phone: document.getElementById('phone').value.trim(),
             interest: document.getElementById('interest').value,
-            message: document.getElementById('message').value.trim(),
+            message: (document.getElementById('message').value.trim() + (wantsInspection ? ' [Wants to book an inspection]' : '')).trim(),
             ...getUTMParams(),
             ...(getLeadRef() ? { lead_ref: getLeadRef() } : {}),
             page_url: window.location.href,
@@ -344,7 +346,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // ---- Live Supabase Submission ---- //
                 await insertEnquiry(formData);
 
-                showStatus('✓ Enquiry submitted successfully. We\'ll be in touch shortly.', 'success');
+                showStatus(wantsInspection
+                    ? '✓ Thanks! Now pick your inspection time below.'
+                    : '✓ Enquiry submitted successfully. We\'ll be in touch shortly.', 'success');
+                if (wantsInspection) revealBookingCalendar();
                 submitBtn.textContent = '✓ Sent';
                 submitBtn.style.background = 'var(--clr-success, #3a7d44)';
                 submitBtn.style.opacity = '1';
@@ -378,7 +383,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn('Supabase not configured. Form data:', formData);
                 await new Promise(resolve => setTimeout(resolve, 1000));
 
-                showStatus('✓ Enquiry submitted successfully. We\'ll be in touch shortly.', 'success');
+                showStatus(wantsInspection
+                    ? '✓ Thanks! Now pick your inspection time below.'
+                    : '✓ Enquiry submitted successfully. We\'ll be in touch shortly.', 'success');
+                if (wantsInspection) revealBookingCalendar();
                 submitBtn.textContent = '✓ Sent';
                 submitBtn.style.background = 'var(--clr-success, #3a7d44)';
                 submitBtn.style.opacity = '1';
@@ -470,12 +478,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const status = STATUS_LABELS[card.dataset.status] ? card.dataset.status : 'available';
         const unitNum = card.dataset.unit;
 
-        // Sold cards get a full-strength corner ribbon; everything else
-        // gets a status chip in the card header
-        if (status === 'sold') {
+        // Sold and under-contract cards get a full-strength corner
+        // ribbon; available units get a status chip in the card header
+        if (status === 'sold' || status === 'under-offer') {
             const ribbon = document.createElement('div');
-            ribbon.className = 'sold-ribbon';
-            ribbon.textContent = 'Sold';
+            ribbon.className = 'sold-ribbon' + (status === 'under-offer' ? ' sold-ribbon--long' : '');
+            ribbon.textContent = STATUS_LABELS[status];
             ribbon.setAttribute('aria-hidden', 'true');
             card.appendChild(ribbon);
         } else {
@@ -542,44 +550,37 @@ document.addEventListener('DOMContentLoaded', () => {
     //      the calendar's contents stay private. ---- //
     const BOOKING_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1hay2OaHoldhWLtaUsQt8H0FWO7nJq46BJkF1tbaqKSzbKHgk4FEGYqR-5YGliazC6eosX5VL-?gv=true';
 
-    const bookingSection = document.getElementById('book');
-    if (BOOKING_URL && bookingSection) {
+    // The calendar stays hidden until someone submits the enquiry form
+    // with the inspection box ticked - their details land in the
+    // database first, then they pick a time.
+    function revealBookingCalendar() {
+        const bookingSection = document.getElementById('book');
+        if (!BOOKING_URL || !bookingSection) return;
         bookingSection.hidden = false;
-
-        // Load Google's calendar only when the visitor nears the section
         const frameHost = document.getElementById('bookingFrame');
-        const loadBookingFrame = () => {
-            if (frameHost.dataset.loaded) return;
+        if (!frameHost.dataset.loaded) {
             frameHost.dataset.loaded = '1';
             const iframe = document.createElement('iframe');
             iframe.src = BOOKING_URL;
             iframe.title = 'Book a private inspection at Holland Residences';
-            iframe.loading = 'lazy';
             frameHost.appendChild(iframe);
-        };
-        new IntersectionObserver((entries, obs) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { loadBookingFrame(); obs.disconnect(); }
-            });
-        }, { rootMargin: '600px' }).observe(bookingSection);
-
-        // Point the inspection CTAs at the calendar instead of the form
-        document.querySelectorAll('a[data-cta="inspection"]').forEach(el => {
-            el.setAttribute('href', '#book');
-        });
+        }
+        setTimeout(() => bookingSection.scrollIntoView({ behavior: 'smooth' }), 500);
+        if (typeof gtag === 'function') {
+            gtag('event', 'book_inspection', { event_category: 'Contact' });
+        }
+        if (typeof fbq === 'function') fbq('trackCustom', 'BookInspection');
     }
 
-    // ---- Book-inspection CTAs ---- //
+    // ---- Book-inspection CTAs: tick the box, take them to the form ---- //
     document.querySelectorAll('[data-cta="inspection"]').forEach(el => {
         el.addEventListener('click', () => {
+            const box = document.getElementById('bookInspection');
+            if (box) box.checked = true;
             const message = document.getElementById('message');
             if (message && !message.value) {
                 message.value = "I'd like to book a private inspection of Holland Residences.";
             }
-            if (typeof gtag === 'function') {
-                gtag('event', 'book_inspection', { event_category: 'Contact' });
-            }
-            if (typeof fbq === 'function') fbq('trackCustom', 'BookInspection');
         });
     });
 

@@ -1534,7 +1534,8 @@ h2 {
     border: 1px solid var(--border-light);
 }
 
-.unit-card[data-status="sold"] {
+.unit-card[data-status="sold"],
+.unit-card[data-status="under-offer"] {
     position: relative;
     overflow: hidden;
 }
@@ -1553,6 +1554,13 @@ h2 {
 .unit-card[data-status="sold"] .unit-floorplan-btn,
 .unit-card[data-status="sold"] .unit-btn {
     opacity: 0.45;
+}
+
+.sold-ribbon.sold-ribbon--long {
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    padding-top: 9px;
+    padding-bottom: 9px;
 }
 
 .sold-ribbon {
@@ -1848,4 +1856,32 @@ h2 {
     .booking-frame iframe {
         height: 760px;
     }
+}
+
+/* Ribbon replaces the Signature badge on sold/under-contract cards */
+.unit-card--featured[data-status="sold"]::before,
+.unit-card--featured[data-status="under-offer"]::before {
+    display: none;
+}
+
+/* Inspection tick-box in the enquiry form */
+.form-check {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.form-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+}
+
+.form-check label {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
 }
