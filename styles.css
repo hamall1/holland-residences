@@ -1557,10 +1557,14 @@ h2 {
 }
 
 .sold-ribbon.sold-ribbon--long {
-    font-size: 0.6rem;
-    letter-spacing: 0.16em;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
     padding-top: 9px;
     padding-bottom: 9px;
+    width: 240px;
+    top: 64px;
+    right: -40px;
+    white-space: nowrap;
 }
 
 .sold-ribbon {
@@ -1570,6 +1574,7 @@ h2 {
     transform: rotate(45deg);
     width: 190px;
     text-align: center;
+    white-space: nowrap;
     padding: 8px 0;
     background: var(--accent);
     color: var(--bg-primary);
@@ -1884,4 +1889,9 @@ h2 {
     letter-spacing: 0.02em;
     font-size: 0.85rem;
     color: var(--text-secondary);
+}
+
+/* The deeper under-contract ribbon crosses the level pill - hide it */
+.unit-card[data-status="under-offer"] .unit-level {
+    visibility: hidden;
 }
