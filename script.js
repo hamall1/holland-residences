@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const STATUS_LABELS = {
         'available': 'Available',
-        'under-offer': 'Under Offer',
+        'under-offer': 'Under Contract',
         'sold': 'Sold'
     };
 
@@ -499,8 +499,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const soldPriceEl = card.querySelector('.unit-price');
             if (soldPriceEl) soldPriceEl.textContent = 'Sold';
         } else if (status === 'under-offer') {
-            if (enquireBtn) enquireBtn.textContent = 'Under Offer - Register as Backup';
-            if (option) option.textContent += ' · Under Offer';
+            if (enquireBtn) enquireBtn.textContent = 'Under Contract - Register as Backup';
+            if (option) option.textContent += ' · Under Contract';
         } else {
             availableCount++;
             const priceEl = card.querySelector('.unit-price');

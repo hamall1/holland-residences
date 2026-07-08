@@ -24,3 +24,6 @@ node_modules/
 # Build
 dist/
 build/
+
+# Local-only admin tools - never commit, never deploy
+admin/
