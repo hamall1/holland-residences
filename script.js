@@ -535,6 +535,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ---- Inspection booking calendar (Google Calendar appointment
+    //      schedule). Paste the Google booking-page URL below to switch
+    //      the on-site calendar on; leave empty and inspection CTAs fall
+    //      back to the enquiry form. Visitors only ever see open slots -
+    //      the calendar's contents stay private. ---- //
+    const BOOKING_URL = '';
+
+    const bookingSection = document.getElementById('book');
+    if (BOOKING_URL && bookingSection) {
+        bookingSection.hidden = false;
+
+        // Load Google's calendar only when the visitor nears the section
+        const frameHost = document.getElementById('bookingFrame');
+        const loadBookingFrame = () => {
+            if (frameHost.dataset.loaded) return;
+            frameHost.dataset.loaded = '1';
+            const iframe = document.createElement('iframe');
+            iframe.src = BOOKING_URL;
+            iframe.title = 'Book a private inspection at Holland Residences';
+            iframe.loading = 'lazy';
+            frameHost.appendChild(iframe);
+        };
+        new IntersectionObserver((entries, obs) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { loadBookingFrame(); obs.disconnect(); }
+            });
+        }, { rootMargin: '600px' }).observe(bookingSection);
+
+        // Point the inspection CTAs at the calendar instead of the form
+        document.querySelectorAll('a[data-cta="inspection"]').forEach(el => {
+            el.setAttribute('href', '#book');
+        });
+    }
+
     // ---- Book-inspection CTAs ---- //
     document.querySelectorAll('[data-cta="inspection"]').forEach(el => {
         el.addEventListener('click', () => {
