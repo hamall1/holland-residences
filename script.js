@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //      the on-site calendar on; leave empty and inspection CTAs fall
     //      back to the enquiry form. Visitors only ever see open slots -
     //      the calendar's contents stay private. ---- //
-    const BOOKING_URL = '';
+    const BOOKING_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1hay2OaHoldhWLtaUsQt8H0FWO7nJq46BJkF1tbaqKSzbKHgk4FEGYqR-5YGliazC6eosX5VL-?gv=true';
 
     const bookingSection = document.getElementById('book');
     if (BOOKING_URL && bookingSection) {
