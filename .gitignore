@@ -27,3 +27,9 @@ build/
 
 # Local-only admin tools - never commit, never deploy
 admin/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
