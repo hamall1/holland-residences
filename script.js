@@ -33,16 +33,109 @@ document.addEventListener('DOMContentLoaded', () => {
         try { return localStorage.getItem('lead_ref') || ''; } catch (e) { return ''; }
     }
 
-    // Insert an enquiry; if the lead_ref column doesn't exist yet in the
-    // database, retry without it - a lead must never be lost to tracking.
-    async function insertEnquiry(payload) {
-        let { error } = await supabase.from('enquiries').insert([payload]);
-        if (error && payload.lead_ref) {
-            const retry = Object.assign({}, payload);
-            delete retry.lead_ref;
-            ({ error } = await supabase.from('enquiries').insert([retry]));
+    // ============================================================
+    // VISITOR JOURNEY TRACKING
+    // Builds a behavioural profile of every visitor so each enquiry
+    // arrives with the full story: how they first found us, how many
+    // times they came back, which residences they actually looked at,
+    // whether they watched the film. Stored per-browser in localStorage
+    // and attached to the enquiry as a `journey` object for the CRM.
+    // Everything degrades gracefully in private browsing.
+    // ============================================================
+    const JOURNEY_KEY = 'hr_journey';
+
+    function getJourney() {
+        try { return JSON.parse(localStorage.getItem(JOURNEY_KEY) || '{}'); } catch (e) { return {}; }
+    }
+    function saveJourney(j) {
+        try { localStorage.setItem(JOURNEY_KEY, JSON.stringify(j)); } catch (e) {}
+    }
+
+    function deviceType() {
+        const ua = navigator.userAgent || '';
+        if (/iPad|Tablet/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua))) return 'tablet';
+        if (/Mobi|iPhone|Android/i.test(ua) || window.innerWidth < 768) return 'mobile';
+        return 'desktop';
+    }
+
+    // Record first-touch (once, ever) and count each new session
+    (function initJourney() {
+        const p = new URLSearchParams(window.location.search);
+        const j = getJourney();
+        if (!j.first_visit_at) {
+            j.first_visit_at = new Date().toISOString();
+            j.first_source = p.get('utm_source') || '';
+            j.first_medium = p.get('utm_medium') || '';
+            j.first_campaign = p.get('utm_campaign') || '';
+            j.first_ref = (p.get('ref') || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40);
+            j.first_landing = (location.pathname + location.search).slice(0, 200);
+            j.first_referrer = (document.referrer || '').slice(0, 200);
+            j.visit_count = 0;
+            j.units_viewed = [];
+            j.floorplan_views = 0;
+            j.video_played = false;
+            j.pack_requested = false;
+            j.deepest_section = '';
         }
-        if (error) throw error;
+        // Count one visit per browser session
+        try {
+            if (!sessionStorage.getItem('hr_session')) {
+                sessionStorage.setItem('hr_session', '1');
+                j.visit_count = (j.visit_count || 0) + 1;
+            }
+        } catch (e) { j.visit_count = j.visit_count || 1; }
+        saveJourney(j);
+    })();
+
+    function journeyRecordUnit(label) {
+        const m = String(label || '').match(/\d+/);
+        if (!m) return;
+        const n = parseInt(m[0], 10);
+        const j = getJourney();
+        j.units_viewed = j.units_viewed || [];
+        if (j.units_viewed.indexOf(n) === -1) j.units_viewed.push(n);
+        j.floorplan_views = (j.floorplan_views || 0) + 1;
+        saveJourney(j);
+    }
+    function journeyFlag(flag) {
+        const j = getJourney();
+        j[flag] = true;
+        saveJourney(j);
+    }
+    function journeySection(name) {
+        const order = ['about', 'residences', 'film', 'gallery', 'location', 'contact'];
+        const j = getJourney();
+        if (order.indexOf(name) > order.indexOf(j.deepest_section || '')) {
+            j.deepest_section = name;
+            saveJourney(j);
+        }
+    }
+
+    // The snapshot attached to an enquiry - the journey plus this-visit context
+    function buildJourney() {
+        const j = getJourney();
+        return Object.assign({}, j, {
+            device: deviceType(),
+            screen: window.innerWidth + 'x' + window.innerHeight,
+            language: navigator.language || '',
+            enquiry_page: (location.pathname + location.search).slice(0, 200),
+            last_source: new URLSearchParams(location.search).get('utm_source') || '',
+            enquired_at: new Date().toISOString()
+        });
+    }
+
+    // Insert an enquiry, richest payload first. On a missing-column error
+    // (e.g. journey/lead_ref not added to the table yet) progressively
+    // strip the optional enrichment and retry - a lead is NEVER lost.
+    async function insertEnquiry(payload) {
+        const noJourney = Object.assign({}, payload); delete noJourney.journey;
+        const core = Object.assign({}, noJourney); delete core.lead_ref;
+        let error;
+        for (const body of [payload, noJourney, core]) {
+            ({ error } = await supabase.from('enquiries').insert([body]));
+            if (!error) return;
+        }
+        throw error;
     }
 
     // ---- UTM Parameter Capture ---- //
@@ -246,7 +339,8 @@ document.addEventListener('DOMContentLoaded', () => {
         floorplanModal.classList.add('active');
         document.body.style.overflow = 'hidden';
 
-        // Track floor plan view in GA4
+        // Track floor plan view in GA4 + the visitor's journey
+        journeyRecordUnit(label);
         if (typeof gtag === 'function') {
             gtag('event', 'view_floor_plan', {
                 event_category: 'Engagement',
@@ -319,6 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message: (document.getElementById('message').value.trim() + (wantsInspection ? ' [Wants to book an inspection]' : '')).trim(),
             ...getUTMParams(),
             ...(getLeadRef() ? { lead_ref: getLeadRef() } : {}),
+            journey: buildJourney(),
             page_url: window.location.href,
             submitted_at: new Date().toISOString()
         };
@@ -428,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ---- Scroll Depth Tracking (for campaign analytics) ---- //
-    const sections = ['about', 'residences', 'gallery', 'location', 'contact'];
+    const sections = ['about', 'residences', 'film', 'gallery', 'location', 'contact'];
     const trackedSections = new Set();
 
     const sectionObserver = new IntersectionObserver((entries) => {
@@ -437,6 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const id = entry.target.id;
                 if (!trackedSections.has(id)) {
                     trackedSections.add(id);
+                    journeySection(id);
 
                     // Fire GA event if loaded
                     if (typeof gtag === 'function') {
@@ -589,6 +685,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filmFrame = document.getElementById('filmFrame');
     if (filmFrame) {
         filmFrame.addEventListener('click', () => {
+            journeyFlag('video_played');
             const iframe = document.createElement('iframe');
             iframe.src = 'https://www.youtube-nocookie.com/embed/' + filmFrame.dataset.videoId + '?autoplay=1&rel=0&playsinline=1';
             iframe.title = 'Holland Residences walkthrough video';
@@ -652,6 +749,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 message: 'Requested the buyer pack.',
                 ...getUTMParams(),
                 ...(getLeadRef() ? { lead_ref: getLeadRef() } : {}),
+                journey: buildJourney(),
                 page_url: window.location.href,
                 submitted_at: new Date().toISOString()
             };
@@ -671,6 +769,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (typeof fbq === 'function') {
                     fbq('track', 'Lead', { content_name: 'Holland Residences Buyer Pack' });
                 }
+                journeyFlag('pack_requested');
 
                 packStatus.textContent = '✓ Request received. Harrison will send the full buyer pack to you personally, usually within the hour.';
                 packStatus.className = 'form-status success';

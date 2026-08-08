@@ -58,6 +58,7 @@ Run this once in the Supabase SQL Editor:
 
 ```sql
 ALTER TABLE enquiries ADD COLUMN IF NOT EXISTS lead_ref TEXT;
+ALTER TABLE enquiries ADD COLUMN IF NOT EXISTS journey JSONB;
 ```
 
 Each team member shares their own link — the first `ref` a visitor arrives
@@ -70,6 +71,12 @@ submit later (first touch wins):
 Works combined with campaign UTMs, e.g. `/?ref=harrison&utm_source=instagram`.
 Phone enquiries have no automatic attribution — ask the caller how they
 heard about the property and record it in the lead register.
+
+The `journey` column stores each enquirer's behavioural profile as JSON —
+first-touch source, number of visits, which units' floor plans they viewed,
+whether they watched the film or requested the buyer pack, and their device.
+The CRM reads it straight off the enquiry row, so you know how warm a lead
+is before you pick up the phone.
 
 ### 2. Hosting (GitHub Pages)
 
